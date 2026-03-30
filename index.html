@@ -62,12 +62,10 @@
     #gallery { padding: 4.5rem 1.5rem; background: var(--cream); }
     #gallery .inner { max-width: 1100px; margin: 0 auto; }
     .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 220px; gap: 10px; margin-top: 2rem; }
-    .gallery-grid .g-tall { grid-row: span 2; }
-    .gallery-grid .g-wide { grid-column: span 2; }
     .gallery-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: 3px; transition: opacity 0.3s, transform 0.35s; display: block; }
     .gallery-grid img:hover { opacity: 0.9; transform: scale(1.02); }
-    @media (max-width: 700px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; } .gallery-grid .g-wide { grid-column: span 1; } }
-    @media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 200px; } .gallery-grid .g-tall { grid-row: span 1; } }
+    @media (max-width: 700px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; } }
+    @media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 200px; } }
     /* EVENTS / SPECIALS */
     #specials { background: linear-gradient(120deg, #3a0e0e 0%, #5c2008 60%, #8b4010 100%); padding: 4rem 1.5rem; }
     .specials-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
@@ -196,13 +194,11 @@
     <p class="section-sub" style="text-align:center">A glimpse at what awaits you</p>
     <span class="ornament">✦ ✦ ✦</span>
     <div class="gallery-grid">
-      <img class="g-tall" src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927767_orbv1z.jpeg" alt="India Avenue food">
-      <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927780_7p9gy6.jpeg" alt="Indian cuisine Greenwich">
+      <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927767_orbv1z.jpeg" alt="India Avenue food">
+      <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/1bb77e5d-9379-43cd-96a3-b1f7e6d5a368/1770927815_p46rpw.jpeg" alt="India Avenue dining room">
       <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927789_f54e01.jpeg" alt="Curry dish">
-      <img class="g-wide" src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/1bb77e5d-9379-43cd-96a3-b1f7e6d5a368/1770927815_p46rpw.jpeg" alt="India Avenue restaurant">
       <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927804_odg1fy.jpeg" alt="Indian food">
       <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927826_t172fs.jpeg" alt="Tandoor dishes">
-      <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/1bb77e5d-9379-43cd-96a3-b1f7e6d5a368/1770927826_pk3e4c.jpeg" alt="India Avenue ambience">
       <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927835_98t01f.jpeg" alt="Naan and curries">
     </div>
   </div>
@@ -212,45 +208,72 @@
 <div id="specials">
   <div class="specials-inner">
     <div>
-      <h2 class="section-heading">Specials &amp; Events</h2>
-      <p class="section-sub">Good food, every day</p>
+      <h2 class="section-heading">Lunch Specials</h2>
+      <p class="section-sub">A Greenwich staple, every weekday</p>
+      <span style="display:inline-block; background:rgba(255,255,255,0.15); color:#ffe8b8; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:3px; margin-bottom:1.3rem; border:1px solid rgba(255,255,255,0.25);">Mon – Fri &nbsp;·&nbsp; 11:30 AM – 2:30 PM</span>
       <div class="specials-cards">
         <div class="special-card">
-          <div class="special-icon">🍛</div>
           <div>
-            <div class="special-title">Lunch Specials</div>
-            <div class="special-desc">Served Monday–Friday, 11:30 AM – 2:30 PM. Full plates at lunch prices.</div>
+            <div class="special-title">🌿 Vegetarian · $13.95</div>
+            <div class="special-desc">Saag Paneer · Chana Masala · Aloo Gobi · Kadai Paneer · Tadka Dal · Gobi Manchurian</div>
           </div>
         </div>
         <div class="special-card">
-          <div class="special-icon">📱</div>
           <div>
-            <div class="special-title">Dine In or Order Online via Toast</div>
-            <div class="special-desc">Enjoy India Avenue at your table or order ahead for takeout through our Toast online ordering page.</div>
+            <div class="special-title">🍗 Chicken · $14.95</div>
+            <div class="special-desc">Tikka Masala · Chettinad · Vindaloo · Kadai Chicken · Manchurian</div>
+          </div>
+        </div>
+        <div class="special-card">
+          <div>
+            <div class="special-title">🥩 Lamb · $15.95</div>
+            <div class="special-desc">Rogan Josh · Saag · Vindaloo · Tikka Masala</div>
+          </div>
+        </div>
+        <div class="special-card">
+          <div>
+            <div class="special-title">🫓 Kathi Rolls · from $12.95</div>
+            <div class="special-desc">Paneer · Veg · Chicken · Lamb</div>
           </div>
         </div>
       </div>
     </div>
     <div class="specials-cta">
-      <p>Our lunch specials are a Greenwich favorite — a full, warm Indian meal served at an honest price. Weekdays only, while it lasts.</p>
-      <a class="btn btn-border" href="menu.html">See the Full Menu</a>
-      <a class="btn btn-border" href="contact.html">Get in Touch</a>
+      <p>A complete, warm Indian meal at an honest price — served every weekday. The same care that goes into our dinner service, in a format built for the midday hour.</p>
+      <a class="btn btn-border" href="specials.html">See Full Lunch Menu</a>
+      <a class="btn btn-border" href="menu.html">Full Dinner Menu</a>
     </div>
   </div>
 </div>
 
-<!-- GOOGLE REVIEWS -->
+<!-- REVIEWS -->
 <section id="reviews">
   <div class="inner">
-    <h2 class="section-heading">Loved by Greenwich</h2>
-    <p class="section-sub">See what our neighbors are saying</p>
+    <h2 class="section-heading">What Our Guests Say</h2>
+    <p class="section-sub">Rated 4.5 on TripAdvisor · #14 of 111 restaurants in Greenwich</p>
     <span class="ornament">✦ ✦ ✦</span>
-    <div style="text-align:center; max-width:580px; margin:0 auto;">
-      <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:1.1rem; color:var(--text); line-height:1.8; margin-bottom:2rem;">India Avenue has been a Greenwich favorite for years. Read what our guests say on Google, or share your own experience after your next visit.</p>
-      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-        <a class="btn btn-red" href="https://www.google.com/maps/place/India+Avenue/@41.0212,-73.6277,17z/data=!4m8!3m7!1s0x89c29a24e3291dc3:0x2d7cbf9ab1c6f5d5!8m2!3d41.0212!4d-73.6277!9m1!1b1" target="_blank" rel="noopener">Read Reviews on Google</a>
-        <a class="btn btn-warm" href="https://www.google.com/maps/place/India+Avenue/@41.0212,-73.6277,17z/data=!4m8!3m7!1s0x89c29a24e3291dc3:0x2d7cbf9ab1c6f5d5!8m2!3d41.0212!4d-73.6277!9m1!1b1" target="_blank" rel="noopener">Leave a Review</a>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Love the food. My go-to place once a week. The manager and staff are very pleasant. Big menu, lots of choices. The lunch specials are very good as well."</p>
+        <div class="review-author">Dana K.</div>
+        <div class="review-source">TripAdvisor · Greenwich, CT</div>
       </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The food is savory, authentic and beautifully presented. The staff is warm, friendly and attentive. We love the ambiance — trendy, light-filled and tastefully decorated."</p>
+        <div class="review-author">Roxana T.</div>
+        <div class="review-source">TripAdvisor · Greenwich, CT</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The food was great, and the staff treated us like royalty. This is a great restaurant run by very sweet people. Go here; enjoy."</p>
+        <div class="review-author">Bob L.</div>
+        <div class="review-source">TripAdvisor · Greenwich, CT</div>
+      </div>
+    </div>
+    <div class="reviews-cta">
+      <a href="https://www.tripadvisor.com/Restaurant_Review-g33793-d12379994-Reviews-India_Avenue-Greenwich_Connecticut.html" target="_blank" rel="noopener">Read all reviews on TripAdvisor →</a>
     </div>
   </div>
 </section>
@@ -306,24 +329,6 @@
   </div>
 </div>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="inner">
-    <h2 class="section-heading">Say Hello</h2>
-    <p class="section-sub">We'd love to hear from you</p>
-    <span class="ornament">✦ ✦ ✦</span>
-    <p style="color:var(--muted); font-size:0.95rem; margin-bottom:0.5rem;">Questions, reservations, or just want to share what you love — drop us a note.</p>
-    <form class="contact-form" action="mailto:ZooZoomfast@outlook.com" method="post" enctype="text/plain">
-      <div class="form-row">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Email address" required>
-      </div>
-      <input type="text" name="subject" placeholder="Subject (e.g. Reservation, Catering, Feedback)">
-      <textarea name="message" placeholder="Your message…" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
-</section>
 
 <!-- ORDER BANNER -->
 <div class="order-banner">
