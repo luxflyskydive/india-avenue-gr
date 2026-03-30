@@ -95,10 +95,22 @@
     .order-banner { background: linear-gradient(90deg, var(--red) 0%, var(--saffron) 100%); padding: 2.2rem 1.5rem; text-align: center; }
     .order-banner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.1rem, 3vw, 1.6rem); color: #fff; margin-bottom: 1.1rem; }
     /* FOOTER */
-    footer { background: #0e0505; color: #9a7a5a; text-align: center; padding: 2.2rem 1.5rem; font-size: 0.82rem; line-height: 2; }
-    footer a { color: var(--gold); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    .footer-logo { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--gold); display: block; margin-bottom: 0.4rem; }
+    footer { background: #0e0505; color: #9a7a5a; padding: 3.5rem 1.5rem 1.5rem; font-size: 0.82rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 2fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(212,160,74,0.15); }
+    @media (max-width: 680px) { .footer-inner { grid-template-columns: 1fr; gap: 2rem; } }
+    .footer-logo { font-family: 'Dancing Script', cursive; font-size: 1.9rem; color: var(--gold); display: block; margin-bottom: 0.7rem; }
+    .footer-left p { line-height: 1.8; color: #7a5a40; font-size: 0.82rem; margin-bottom: 0.2rem; }
+    .footer-left a { color: #9a7a5a; text-decoration: none; }
+    .footer-left a:hover { color: var(--gold); }
+    .footer-social { margin-top: 1rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .footer-social a { border: 1px solid rgba(212,160,74,0.35); color: var(--gold); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.35rem 0.8rem; border-radius: 3px; transition: all 0.2s; }
+    .footer-social a:hover { background: var(--gold); color: var(--dark); }
+    .footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    @media (max-width: 480px) { .footer-links { grid-template-columns: repeat(2, 1fr); } }
+    .footer-col-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--saffron); font-weight: 700; margin-bottom: 0.8rem; }
+    .footer-col a { display: block; color: #7a5a40; text-decoration: none; font-size: 0.82rem; padding: 0.28rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-bottom { max-width: 1100px; margin: 1.5rem auto 0; text-align: center; font-size: 0.74rem; color: #4a3020; }
 
     /* MOBILE RESPONSIVE */
     img { max-width: 100%; height: auto; }
@@ -120,6 +132,7 @@
     <li><a href="menu.html">Menu</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="specials.html">Specials</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
     <li><a href="location.html" class="active">Hours &amp; Location</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a class="nav-order" href="https://order.toasttab.com/online/india-avenue-249-railroad-avenue" target="_blank" rel="noopener">Order Online</a></li>
@@ -256,14 +269,43 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-logo">India Avenue</span>
-  249 Railroad Ave, Greenwich, CT 06830 &nbsp;·&nbsp; <a href="tel:+12037171567">+1 (203) 717-1567</a><br>
-  <a href="menu.html">Our Menu</a> &nbsp;·&nbsp;
-  <a href="specials.html">Specials</a> &nbsp;·&nbsp;
-  <a href="https://order.toasttab.com/online/india-avenue-249-railroad-avenue" target="_blank" rel="noopener">Order Online</a> &nbsp;·&nbsp;
-  <a href="https://www.instagram.com/indiaavenuegreenwich/" target="_blank" rel="noopener">Instagram</a> &nbsp;·&nbsp;
-  <a href="contact.html">Contact</a>
-  <div style="margin-top:1rem; font-size:0.75rem; opacity:0.45;">© India Avenue Restaurant · Greenwich, CT</div>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">India Avenue</span>
+      <p>249 Railroad Ave<br>Greenwich, CT 06830</p>
+      <p><a href="tel:+12037171567">+1 (203) 717-1567</a></p>
+      <p style="margin-top:0.5rem;">Mon–Fri: 11:30 AM–2:30 PM &amp; 5–10 PM</p>
+      <p>Sat–Sun: 12–3 PM &amp; 5–10 PM</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/indiaavenuegreenwich/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://order.toasttab.com/online/india-avenue-249-railroad-avenue" target="_blank" rel="noopener">Order Online</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title">Dining</div>
+        <a href="menu.html">Our Menu</a>
+        <a href="specials.html">Lunch Specials</a>
+        <a href="specials.html">Private Dining</a>
+        <a href="https://order.toasttab.com/online/india-avenue-249-railroad-avenue" target="_blank" rel="noopener">Order Online</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Visit</div>
+        <a href="location.html">Hours &amp; Location</a>
+        <a href="contact.html">Reserve a Table</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="https://maps.google.com/?q=249+Railroad+Ave,+Greenwich,+CT+06830" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">About</div>
+        <a href="about.html">Our Story</a>
+        <a href="about.html">The Kitchen</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="https://www.instagram.com/indiaavenuegreenwich/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; India Avenue Restaurant &nbsp;&middot;&nbsp; Greenwich, CT</div>
 </footer>
 
 <script>
