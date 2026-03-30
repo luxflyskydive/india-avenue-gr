@@ -123,16 +123,47 @@
     .contact-form textarea { min-height: 130px; resize: vertical; }
     .contact-form button { align-self: flex-start; border: 1.5px solid var(--red); color: var(--red); background: transparent; padding: 0.65rem 1.6rem; border-radius: 4px; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.05em; cursor: pointer; transition: all 0.2s; font-family: 'Lato', sans-serif; }
     .contact-form button:hover { background: var(--red); color: #fff; }
+    /* ACCOLADES BAR */
+    .accolades-bar { background: #150808; border-bottom: 1px solid rgba(212,160,74,0.25); padding: 0.7rem 1.5rem; }
+    .accolades-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; align-items: center; gap: 1.8rem; flex-wrap: wrap; }
+    .accolade { font-size: 0.76rem; color: #c9a870; letter-spacing: 0.1em; text-transform: uppercase; }
+    .accolade strong { color: var(--gold); }
+    .accolade-div { color: rgba(212,160,74,0.3); font-size: 1rem; }
+    @media (max-width: 560px) { .accolades-inner { gap: 0.9rem; } .accolade { font-size: 0.68rem; } }
+    /* INSTAGRAM SECTION */
+    .instagram-section { padding: 4.5rem 1.5rem; background: var(--dark); }
+    .instagram-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+    .instagram-section .section-heading { color: var(--gold); }
+    .instagram-section .section-sub { color: #f0c86a; }
+    .instagram-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 2rem; }
+    @media (max-width: 600px) { .instagram-grid { grid-template-columns: repeat(2, 1fr); } }
+    .insta-photo { aspect-ratio: 1/1; overflow: hidden; position: relative; }
+    .insta-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s, opacity 0.3s; }
+    .insta-photo:hover img { transform: scale(1.06); opacity: 0.85; }
+    .instagram-handle { margin-top: 1.8rem; }
+    .instagram-handle a { font-family: 'Lato', sans-serif; font-size: 0.88rem; color: #c9a870; letter-spacing: 0.08em; text-decoration: none; border-bottom: 1px solid rgba(201,168,112,0.4); padding-bottom: 2px; }
+    .instagram-handle a:hover { color: var(--gold); }
     /* ORDER BANNER */
     .order-banner { background: linear-gradient(90deg, var(--red) 0%, var(--saffron) 100%); padding: 2.2rem 1.5rem; text-align: center; }
     .order-banner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.1rem, 3vw, 1.6rem); color: #fff; margin-bottom: 1.1rem; }
     .order-banner .btn-cream { font-size: 0.95rem; padding: 0.65rem 2rem; }
     /* FOOTER */
-    footer { background: #0e0505; color: #9a7a5a; text-align: center; padding: 2.2rem 1.5rem; font-size: 0.82rem; line-height: 2; }
-    footer a { color: var(--gold); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    .footer-logo { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--gold); display: block; margin-bottom: 0.4rem; }
-    .divider { text-align: center; color: var(--gold); font-size: 1rem; letter-spacing: 0.3em; margin: 0.5rem 0; opacity: 0.6; }
+    footer { background: #0e0505; color: #9a7a5a; padding: 3.5rem 1.5rem 1.5rem; font-size: 0.82rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 2fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(212,160,74,0.15); }
+    @media (max-width: 680px) { .footer-inner { grid-template-columns: 1fr; gap: 2rem; } }
+    .footer-logo { font-family: 'Dancing Script', cursive; font-size: 1.9rem; color: var(--gold); display: block; margin-bottom: 0.7rem; }
+    .footer-left p { line-height: 1.8; color: #7a5a40; font-size: 0.82rem; margin-bottom: 0.2rem; }
+    .footer-left a { color: #9a7a5a; text-decoration: none; }
+    .footer-left a:hover { color: var(--gold); }
+    .footer-social { margin-top: 1rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .footer-social a { border: 1px solid rgba(212,160,74,0.35); color: var(--gold); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.35rem 0.8rem; border-radius: 3px; transition: all 0.2s; }
+    .footer-social a:hover { background: var(--gold); color: var(--dark); }
+    .footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    @media (max-width: 480px) { .footer-links { grid-template-columns: repeat(2, 1fr); } }
+    .footer-col-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--saffron); font-weight: 700; margin-bottom: 0.8rem; }
+    .footer-col a { display: block; color: #7a5a40; text-decoration: none; font-size: 0.82rem; padding: 0.28rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-bottom { max-width: 1100px; margin: 1.5rem auto 0; text-align: center; font-size: 0.74rem; color: #4a3020; }
   </style>
 </head>
 <body>
@@ -147,6 +178,7 @@
     <li><a href="menu.html">Menu</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="specials.html">Specials</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
     <li><a href="location.html">Hours &amp; Location</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a class="nav-order" href="https://order.toasttab.com/online/india-avenue-249-railroad-avenue" target="_blank" rel="noopener">Order Online</a></li>
@@ -163,6 +195,17 @@
     <a class="btn btn-border" href="https://order.toasttab.com/online/india-avenue-249-railroad-avenue" target="_blank" rel="noopener">Order Online</a>
   </div>
 </header>
+
+<!-- ACCOLADES BAR -->
+<div class="accolades-bar">
+  <div class="accolades-inner">
+    <div class="accolade"><strong>4.5</strong> &nbsp;TripAdvisor Travelers' Choice</div>
+    <div class="accolade-div">·</div>
+    <div class="accolade"><strong>4.4</strong> &nbsp;Stars on Google</div>
+    <div class="accolade-div">·</div>
+    <div class="accolade"><strong>#14</strong> &nbsp;of 111 Restaurants in Greenwich</div>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <div id="about">
@@ -318,17 +361,39 @@
         <a href="https://indiaavenuegr.com" target="_blank" rel="noopener">Website</a>
       </div>
     </div>
-    <div class="map-embed">
-      <iframe
-        src="https://maps.google.com/maps?q=249+Railroad+Ave,+Greenwich,+CT+06830&output=embed"
-        allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="India Avenue on Google Maps">
-      </iframe>
+    <div style="display:flex; flex-direction:column; gap:1rem; justify-content:center;">
+      <a href="https://maps.google.com/?q=249+Railroad+Ave,+Greenwich,+CT+06830" target="_blank" rel="noopener" style="display:block; background:rgba(255,255,255,0.05); border:1px solid rgba(212,160,74,0.3); border-radius:4px; padding:1.8rem 1.5rem; text-decoration:none; transition:background 0.2s;">
+        <div style="font-size:2rem; margin-bottom:0.6rem;">📍</div>
+        <div style="font-family:'Playfair Display',serif; font-size:1.1rem; color:#ffe8b8; margin-bottom:0.4rem;">249 Railroad Ave</div>
+        <div style="font-size:0.88rem; color:#c9a870; margin-bottom:1rem;">Greenwich, CT 06830</div>
+        <div style="font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--saffron);">Open in Google Maps →</div>
+      </a>
+      <a href="location.html" style="display:block; background:rgba(255,255,255,0.04); border:1px solid rgba(212,160,74,0.2); border-radius:4px; padding:1.1rem 1.5rem; text-decoration:none; transition:background 0.2s;">
+        <div style="font-size:0.82rem; color:#c9a870;">Full directions, transit info &amp; parking &nbsp;→</div>
+      </a>
     </div>
   </div>
 </div>
 
+
+<!-- INSTAGRAM -->
+<section class="instagram-section">
+  <div class="instagram-inner">
+    <h2 class="section-heading">On Instagram</h2>
+    <p class="section-sub">@indiaavenuegreenwich</p>
+    <div class="instagram-grid">
+      <div class="insta-photo"><img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927767_orbv1z.jpeg" alt="India Avenue on Instagram"></div>
+      <div class="insta-photo"><img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927789_f54e01.jpeg" alt="India Avenue on Instagram"></div>
+      <div class="insta-photo"><img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/1bb77e5d-9379-43cd-96a3-b1f7e6d5a368/1770927815_p46rpw.jpeg" alt="India Avenue on Instagram"></div>
+      <div class="insta-photo"><img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927804_odg1fy.jpeg" alt="India Avenue on Instagram"></div>
+      <div class="insta-photo"><img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927826_t172fs.jpeg" alt="India Avenue on Instagram"></div>
+      <div class="insta-photo"><img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927835_98t01f.jpeg" alt="India Avenue on Instagram"></div>
+    </div>
+    <div class="instagram-handle">
+      <a href="https://www.instagram.com/indiaavenuegreenwich/" target="_blank" rel="noopener">Follow @indiaavenuegreenwich on Instagram</a>
+    </div>
+  </div>
+</section>
 
 <!-- ORDER BANNER -->
 <div class="order-banner">
@@ -338,13 +403,43 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-logo">India Avenue</span>
-  249 Railroad Ave, Greenwich, CT 06830 &nbsp;·&nbsp; <a href="tel:+12037171567">+1 (203) 717-1567</a><br>
-  <a href="menu.html">Our Menu</a> &nbsp;·&nbsp;
-  <a href="https://order.toasttab.com/online/india-avenue-249-railroad-avenue" target="_blank" rel="noopener">Order Online</a> &nbsp;·&nbsp;
-  <a href="https://www.instagram.com/indiaavenuegreenwich/" target="_blank" rel="noopener">Instagram</a> &nbsp;·&nbsp;
-  <a href="contact.html">Contact</a>
-  <div style="margin-top:1rem; font-size:0.75rem; opacity:0.45;">© India Avenue Restaurant · Greenwich, CT</div>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">India Avenue</span>
+      <p>249 Railroad Ave<br>Greenwich, CT 06830</p>
+      <p><a href="tel:+12037171567">+1 (203) 717-1567</a></p>
+      <p style="margin-top:0.5rem;">Mon–Fri: 11:30 AM–2:30 PM &amp; 5–10 PM</p>
+      <p>Sat–Sun: 12–3 PM &amp; 5–10 PM</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/indiaavenuegreenwich/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://order.toasttab.com/online/india-avenue-249-railroad-avenue" target="_blank" rel="noopener">Order Online</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title">Dining</div>
+        <a href="menu.html">Our Menu</a>
+        <a href="specials.html">Lunch Specials</a>
+        <a href="specials.html">Private Dining</a>
+        <a href="https://order.toasttab.com/online/india-avenue-249-railroad-avenue" target="_blank" rel="noopener">Order Online</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Visit</div>
+        <a href="location.html">Hours &amp; Location</a>
+        <a href="contact.html">Reserve a Table</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="https://maps.google.com/?q=249+Railroad+Ave,+Greenwich,+CT+06830" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">About</div>
+        <a href="about.html">Our Story</a>
+        <a href="about.html">The Kitchen</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="https://www.instagram.com/indiaavenuegreenwich/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; India Avenue Restaurant &nbsp;&middot;&nbsp; Greenwich, CT</div>
 </footer>
 
 <script>
