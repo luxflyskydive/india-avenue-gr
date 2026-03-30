@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Specials &amp; Events — India Avenue | Greenwich, CT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #7a1c1c; --red2: #a32020; --saffron:#c97830; --gold: #d4a04a;
+      --cream: #faf3e4; --parchment: #f3e8cc; --dark: #1e0e0e;
+      --text: #2d1a0e; --muted: #6b4c35;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.7; }
+    .btn { display: inline-block; padding: 0.6rem 1.4rem; border-radius: 4px; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.05em; text-decoration: none; transition: all 0.22s; cursor: pointer; }
+    .btn-border { border: 1.5px solid rgba(255,255,255,0.6); color: #fff; background: transparent; }
+    .btn-border:hover { background: rgba(255,255,255,0.13); }
+    .btn-warm { border: 1.5px solid var(--saffron); color: var(--saffron); background: transparent; }
+    .btn-warm:hover { background: var(--saffron); color: var(--dark); }
+    .btn-red { border: 1.5px solid var(--red); color: var(--red); background: transparent; }
+    .btn-red:hover { background: var(--red); color: #fff; }
+    .btn-cream { border: 1.5px solid var(--cream); color: var(--dark); background: var(--cream); }
+    .btn-cream:hover { background: var(--parchment); }
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: var(--dark); padding: 0 1.25rem; display: flex; align-items: center; justify-content: space-between; min-height: 60px; }
+    .nav-logo { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: var(--gold); text-decoration: none; letter-spacing: 0.02em; white-space: nowrap; }
+    .nav-links { display: flex; align-items: center; gap: 0.1rem; list-style: none; }
+    .nav-links a { color: #e8d5b5; text-decoration: none; font-size: 0.82rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.4rem 0.6rem; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-order { border: 1.5px solid var(--saffron) !important; color: var(--saffron) !important; border-radius: 4px !important; padding: 0.35rem 0.8rem !important; }
+    .nav-order:hover { background: var(--saffron) !important; color: var(--dark) !important; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 6px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+    @media (max-width: 820px) {
+      .nav-toggle { display: flex; }
+      .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: var(--dark); flex-direction: column; align-items: flex-start; padding: 1rem 1.5rem 1.5rem; gap: 0.2rem; border-top: 1px solid #3a2020; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 0.95rem; padding: 0.6rem 0; width: 100%; }
+    }
+    /* PAGE HERO — dark warm gradient */
+    .page-hero { min-height: 44vh; background: linear-gradient(120deg, #3a0e0e 0%, #5c2008 60%, #8b4010 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 3rem 1.5rem; }
+    .page-hero .eyebrow { font-family: 'Lato', sans-serif; font-weight: 300; letter-spacing: 0.3em; text-transform: uppercase; font-size: 0.76rem; color: var(--gold); margin-bottom: 0.8rem; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 7vw, 3.8rem); color: #fff; line-height: 1.15; margin-bottom: 0.8rem; }
+    .page-hero p { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(0.95rem, 2.5vw, 1.15rem); color: #f0ddb0; max-width: 540px; }
+    /* SECTION BASICS */
+    .section-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.4rem); color: var(--red); margin-bottom: 0.35rem; line-height: 1.2; }
+    .section-sub { font-family: 'Dancing Script', cursive; font-size: 1.2rem; color: var(--saffron); margin-bottom: 1.4rem; }
+    .ornament { display: block; text-align: center; color: var(--gold); font-size: 1.2rem; letter-spacing: 0.4em; margin: 0.8rem 0 2.5rem; opacity: 0.65; }
+    /* LUNCH SPECIALS */
+    .lunch { background: var(--parchment); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); padding: 5rem 1.5rem; }
+    .lunch-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    @media (max-width: 760px) { .lunch-inner { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .lunch-text p { margin-bottom: 1rem; font-size: 1rem; line-height: 1.85; color: var(--text); }
+    .lunch-badge { display: inline-block; background: var(--red); color: #fff; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 3px; margin-bottom: 1rem; }
+    .lunch-items { display: flex; flex-direction: column; gap: 0.9rem; }
+    .lunch-item { background: var(--dark); border-radius: 4px; padding: 1.1rem 1.3rem; border-left: 4px solid var(--gold); }
+    .lunch-item-name { font-family: 'Playfair Display', serif; font-size: 1rem; color: #ffe8b8; margin-bottom: 0.2rem; }
+    .lunch-item-desc { font-size: 0.85rem; color: #c9a870; line-height: 1.5; }
+    .hours-callout { background: var(--red); color: #fff; border-radius: 4px; padding: 1.4rem 1.5rem; margin-top: 1.5rem; }
+    .hours-callout .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: #ffd8a0; margin-bottom: 0.3rem; }
+    .hours-callout .value { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: #fff; }
+    /* PRIVATE DINING */
+    .private { padding: 5rem 1.5rem; background: var(--dark); }
+    .private-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
+    @media (max-width: 760px) { .private-inner { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .private .section-heading { color: var(--gold); }
+    .private .section-sub { color: #f0c86a; }
+    .private-text p { font-size: 0.97rem; color: #d4b890; line-height: 1.85; margin-bottom: 1rem; }
+    .private-features { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.7rem; }
+    .private-feature { display: flex; gap: 0.9rem; align-items: flex-start; }
+    .private-feature-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.2rem; }
+    .private-feature-text { font-size: 0.9rem; color: #c9a870; line-height: 1.6; }
+    .private-image { border-radius: 3px; overflow: hidden; border: 2px solid rgba(212,160,74,0.3); }
+    .private-image img { width: 100%; height: 360px; object-fit: cover; display: block; }
+    /* SEASONAL */
+    .seasonal { padding: 5rem 1.5rem; background: var(--cream); }
+    .seasonal .inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+    .seasonal-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; text-align: left; }
+    @media (max-width: 700px) { .seasonal-grid { grid-template-columns: 1fr; } }
+    .seasonal-card { background: var(--parchment); border: 1px solid #e0ceaf; border-radius: 4px; padding: 1.5rem 1.4rem; }
+    .seasonal-season { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--saffron); font-weight: 700; margin-bottom: 0.5rem; }
+    .seasonal-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--red); margin-bottom: 0.5rem; }
+    .seasonal-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    /* CATERING */
+    .catering { background: var(--parchment); border-top: 3px solid var(--gold); padding: 5rem 1.5rem; }
+    .catering .inner { max-width: 820px; margin: 0 auto; text-align: center; }
+    .catering-text { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 2rem; }
+    .catering-steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2rem; text-align: left; }
+    @media (max-width: 600px) { .catering-steps { grid-template-columns: 1fr; } }
+    .catering-step { position: relative; padding-left: 3rem; }
+    .catering-step-num { position: absolute; left: 0; top: 0; font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); opacity: 0.5; line-height: 1; }
+    .catering-step-title { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--red); margin-bottom: 0.35rem; }
+    .catering-step-desc { font-size: 0.87rem; color: var(--muted); line-height: 1.65; }
+    /* ORDER BANNER */
+    .order-banner { background: linear-gradient(90deg, var(--red) 0%, var(--saffron) 100%); padding: 2.2rem 1.5rem; text-align: center; }
+    .order-banner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.1rem, 3vw, 1.6rem); color: #fff; margin-bottom: 1.1rem; }
+    /* FOOTER */
+    footer { background: #0e0505; color: #9a7a5a; text-align: center; padding: 2.2rem 1.5rem; font-size: 0.82rem; line-height: 2; }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-logo { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--gold); display: block; margin-bottom: 0.4rem; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">India Avenue</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="specials.html" class="active">Specials</a></li>
+    <li><a href="location.html">Hours &amp; Location</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a class="nav-order" href="https://order.toasttab.com/online/india-avenue-249-railroad-avenue" target="_blank" rel="noopener">Order Online</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="eyebrow">✦ Good Food Every Day ✦</p>
+  <h1>Specials &amp; Events</h1>
+  <p>From weekday lunch specials to private dining, there's always a reason to come back.</p>
+</div>
+
+<!-- LUNCH SPECIALS -->
+<section class="lunch">
+  <div class="lunch-inner">
+    <div class="lunch-text">
+      <h2 class="section-heading">Lunch Specials</h2>
+      <p class="section-sub">A Greenwich tradition, weekdays only</p>
+      <span class="lunch-badge">Monday – Friday</span>
+      <p>Our lunch specials are one of the most beloved things we do. A complete, warm Indian meal — served at an honest price — that's become a fixture for working professionals and regulars across Greenwich. You get the same care in preparation that goes into our dinner service, just in a format built for the midday hour.</p>
+      <p>The menu rotates, so there's always something to look forward to. Expect seasonal curries, fresh naan from the tandoor, rice dishes, and rotating specials that reflect what our chefs feel inspired by that week.</p>
+      <div class="hours-callout">
+        <div class="label">Lunch Hours</div>
+        <div class="value">Monday – Friday · 11:30 AM – 2:30 PM</div>
+      </div>
+    </div>
+    <div>
+      <div class="lunch-items">
+        <div class="lunch-item">
+          <div class="lunch-item-name">🍛 Curry of the Day</div>
+          <div class="lunch-item-desc">Rotating daily — could be a silky korma, a bright vindaloo, or a slow-cooked kofta. Always served with basmati rice and naan.</div>
+        </div>
+        <div class="lunch-item">
+          <div class="lunch-item-name">🔥 Tandoori Plate</div>
+          <div class="lunch-item-desc">Skewered meats or paneer straight from the clay oven, served with mint chutney, pickled onions, and roti.</div>
+        </div>
+        <div class="lunch-item">
+          <div class="lunch-item-name">🥗 Vegetarian Thali</div>
+          <div class="lunch-item-desc">A selection of three vegetarian dishes with dal, rice, naan, and a small salad. A full, balanced Indian meal on one tray.</div>
+        </div>
+        <div class="lunch-item">
+          <div class="lunch-item-name">🍜 Soup &amp; Starter</div>
+          <div class="lunch-item-desc">Mulligatawny or lentil soup paired with samosas or pakoras — perfect as a lighter midday option.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVATE DINING -->
+<section class="private">
+  <div class="private-inner">
+    <div>
+      <h2 class="section-heading">Private Dining</h2>
+      <p class="section-sub">For groups that deserve more</p>
+      <div class="private-text">
+        <p>India Avenue is available for private dining events, corporate lunches, and celebratory dinners. Whether it's a birthday, an anniversary, a business dinner, or a cocktail reception with passed appetizers, we can accommodate groups with a custom experience.</p>
+        <p>Our team will work with you to build a menu around your preferences — dietary restrictions, regional cuisine preferences, family-style sharing plates, or a formal coursed dinner. We bring the same attention to the food as we do to every other detail of your event.</p>
+      </div>
+      <div class="private-features">
+        <div class="private-feature">
+          <div class="private-feature-icon">👥</div>
+          <div class="private-feature-text">Groups of 10 to 60 guests accommodated</div>
+        </div>
+        <div class="private-feature">
+          <div class="private-feature-icon">📋</div>
+          <div class="private-feature-text">Custom menus designed with your guests in mind</div>
+        </div>
+        <div class="private-feature">
+          <div class="private-feature-icon">🍷</div>
+          <div class="private-feature-text">Full-service bar and beverage pairings available</div>
+        </div>
+        <div class="private-feature">
+          <div class="private-feature-icon">🎂</div>
+          <div class="private-feature-text">Celebration cakes and custom desserts on request</div>
+        </div>
+      </div>
+      <div style="margin-top:2rem;">
+        <a class="btn btn-border" href="contact.html">Enquire About a Private Event</a>
+      </div>
+    </div>
+    <div class="private-image">
+      <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927826_t172fs.jpeg" alt="India Avenue private dining">
+    </div>
+  </div>
+</section>
+
+<!-- SEASONAL HIGHLIGHTS -->
+<section class="seasonal">
+  <div class="inner">
+    <h2 class="section-heading">Seasonal Highlights</h2>
+    <p class="section-sub">The menu moves with the seasons</p>
+    <span class="ornament">✦ ✦ ✦</span>
+    <div class="seasonal-grid">
+      <div class="seasonal-card">
+        <div class="seasonal-season">Spring</div>
+        <div class="seasonal-title">Lamb Rogan Josh</div>
+        <p class="seasonal-desc">Slow-braised Kashmiri lamb with whole spices, a signature of the spring menu. Rich, aromatic, and intensely satisfying after the cold months.</p>
+      </div>
+      <div class="seasonal-card">
+        <div class="seasonal-season">Summer</div>
+        <div class="seasonal-title">Mango Lassi &amp; Shrimp Coconut Curry</div>
+        <p class="seasonal-desc">Chilled mango lassi made with Alphonso pulp, paired with a light coconut shrimp curry from Kerala. Bright, cooling, perfect for warm evenings.</p>
+      </div>
+      <div class="seasonal-card">
+        <div class="seasonal-season">Autumn</div>
+        <div class="seasonal-title">Butternut Squash Dal</div>
+        <p class="seasonal-desc">A seasonal take on our slow-cooked lentil dal, enriched with roasted butternut squash and warming spices. Earthy, grounding, and deeply comforting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATERING -->
+<section class="catering">
+  <div class="inner">
+    <h2 class="section-heading">Catering &amp; Takeout for Events</h2>
+    <p class="section-sub">Bring India Avenue to your table</p>
+    <span class="ornament">✦ ✦ ✦</span>
+    <p class="catering-text">Planning a gathering at home, an office lunch, or a community event? We offer catering for groups of all sizes. Our food travels well — the curries, rice dishes, and breads are designed to be enjoyed at their best even after transport.</p>
+    <div class="catering-steps">
+      <div class="catering-step">
+        <div class="catering-step-num">01</div>
+        <div class="catering-step-title">Get in Touch</div>
+        <p class="catering-step-desc">Reach out via phone or our contact form with your date, guest count, and any preferences. We'll respond within 24 hours.</p>
+      </div>
+      <div class="catering-step">
+        <div class="catering-step-num">02</div>
+        <div class="catering-step-title">Build Your Menu</div>
+        <p class="catering-step-desc">We'll suggest a menu based on your group and occasion — or you can pick directly from our offerings.</p>
+      </div>
+      <div class="catering-step">
+        <div class="catering-step-num">03</div>
+        <div class="catering-step-title">Enjoy the Food</div>
+        <p class="catering-step-desc">Pickup from our Greenwich location or we'll coordinate delivery. Everything arrives hot, labeled, and ready to serve.</p>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem;">
+      <a class="btn btn-red" href="contact.html">Request a Catering Quote</a>
+      &nbsp;&nbsp;
+      <a class="btn btn-warm" href="tel:+12037171567">Call Us Directly</a>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER BANNER -->
+<div class="order-banner">
+  <h2>Not planning ahead? Order online tonight — ready when you are.</h2>
+  <a class="btn btn-cream" href="https://order.toasttab.com/online/india-avenue-249-railroad-avenue" target="_blank" rel="noopener">Order Online via Toast</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">India Avenue</span>
+  249 Railroad Ave, Greenwich, CT 06830 &nbsp;·&nbsp; <a href="tel:+12037171567">+1 (203) 717-1567</a><br>
+  <a href="menu.html">Our Menu</a> &nbsp;·&nbsp;
+  <a href="specials.html">Specials</a> &nbsp;·&nbsp;
+  <a href="https://order.toasttab.com/online/india-avenue-249-railroad-avenue" target="_blank" rel="noopener">Order Online</a> &nbsp;·&nbsp;
+  <a href="https://www.instagram.com/indiaavenuegreenwich/" target="_blank" rel="noopener">Instagram</a> &nbsp;·&nbsp;
+  <a href="contact.html">Contact</a>
+  <div style="margin-top:1rem; font-size:0.75rem; opacity:0.45;">© India Avenue Restaurant · Greenwich, CT</div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+</body>
+</html>
