@@ -61,7 +61,12 @@
     .hours-table { width: 100%; border-collapse: collapse; margin-top: 0.3rem; }
     .hours-table tr { border-bottom: 1px solid rgba(122,28,28,0.15); }
     .hours-table td { padding: 0.55rem 0; font-family: 'Lato', sans-serif; font-size: 0.92rem; color: var(--text); }
-    .hours-table td:first-child { font-weight: 700; color: var(--red); width: 38%; }
+    .hours-table td:first-child { font-weight: 700; color: var(--red); width: 42%; }
+    @media (max-width: 480px) {
+      .hours-table td { display: block; padding: 0.15rem 0; }
+      .hours-table td:first-child { width: 100%; padding-top: 0.6rem; border-bottom: none; }
+      .hours-table tr { display: block; border-bottom: 1px solid rgba(122,28,28,0.15); margin-bottom: 0.1rem; }
+    }
     .hours-note { font-size: 0.82rem; color: var(--muted); margin-top: 0.6rem; font-style: italic; }
     .map-embed { border-radius: 4px; overflow: hidden; border: 2px solid rgba(122,28,28,0.2); aspect-ratio: 4/3; }
     .map-embed iframe { width: 100%; height: 100%; display: block; border: none; }
@@ -94,6 +99,12 @@
     footer a { color: var(--gold); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
     .footer-logo { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--gold); display: block; margin-bottom: 0.4rem; }
+
+    /* MOBILE RESPONSIVE */
+    img { max-width: 100%; height: auto; }
+    @media (max-width: 500px) {
+      .map-embed { aspect-ratio: 1/1; }
+    }
   </style>
 </head>
 <body>
@@ -149,13 +160,8 @@
         <div class="contact-label">Hours of Operation</div>
         <div class="contact-value">
           <table class="hours-table">
-            <tr><td>Monday</td><td>11:30 AM – 2:30 PM &amp; 5:00 – 10:00 PM</td></tr>
-            <tr><td>Tuesday</td><td>11:30 AM – 2:30 PM &amp; 5:00 – 10:00 PM</td></tr>
-            <tr><td>Wednesday</td><td>11:30 AM – 2:30 PM &amp; 5:00 – 10:00 PM</td></tr>
-            <tr><td>Thursday</td><td>11:30 AM – 2:30 PM &amp; 5:00 – 10:00 PM</td></tr>
-            <tr><td>Friday</td><td>11:30 AM – 2:30 PM &amp; 5:00 – 10:00 PM</td></tr>
-            <tr><td>Saturday</td><td>12:00 PM – 3:00 PM &amp; 5:00 – 10:00 PM</td></tr>
-            <tr><td>Sunday</td><td>12:00 PM – 3:00 PM &amp; 5:00 – 10:00 PM</td></tr>
+            <tr><td>Monday – Friday</td><td>11:30 AM – 2:30 PM<br>5:00 – 10:00 PM</td></tr>
+            <tr><td>Saturday – Sunday</td><td>12:00 PM – 3:00 PM<br>5:00 – 10:00 PM</td></tr>
           </table>
           <p class="hours-note">Last seating 30 minutes before close. Kitchen closes at posted times.</p>
         </div>
