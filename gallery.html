@@ -21,7 +21,7 @@
     .btn-cream { border: 1.5px solid var(--cream); color: var(--dark); background: var(--cream); }
     .btn-cream:hover { background: var(--parchment); }
     /* NAV */
-    nav { position: sticky; top: 0; z-index: 100; background: var(--dark); padding: 0 1.25rem; display: flex; align-items: center; justify-content: space-between; min-height: 60px; }
+    nav { position: sticky; top: 0; z-index: 300; background: var(--dark); padding: 0 1.25rem; display: flex; align-items: center; justify-content: space-between; min-height: 60px; }
     .nav-logo { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: var(--gold); text-decoration: none; letter-spacing: 0.02em; white-space: nowrap; }
     .nav-links { display: flex; align-items: center; gap: 0.1rem; list-style: none; }
     .nav-links a { color: #e8d5b5; text-decoration: none; font-size: 0.82rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.4rem 0.6rem; transition: color 0.2s; }
@@ -226,15 +226,14 @@
 <script>
   const toggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
-  // overlay for drawer
+  // overlay for drawer — top set dynamically so it never covers the nav bar
   const overlay = document.createElement('div');
   overlay.style.cssText = 'position:fixed;left:0;right:0;bottom:0;top:60px;background:rgba(0,0,0,0);z-index:199;display:none;transition:background 0.32s ease;';
   document.body.appendChild(overlay);
-  // swipe to close
-  let _tsx = 0;
-  navLinks.addEventListener('touchstart', (e) => { _tsx = e.touches[0].clientX; navLinks.style.transition='none'; overlay.style.transition='none'; }, {passive:true});
-  navLinks.addEventListener('touchmove', (e) => { const dx = e.touches[0].clientX - _tsx; if(dx>0){ navLinks.style.transform=`translateX(${dx}px)`; overlay.style.background=`rgba(0,0,0,${Math.max(0,0.45*(1-dx/220))})`;} }, {passive:true});
-  navLinks.addEventListener('touchend', (e) => { navLinks.style.transition=''; overlay.style.transition='background 0.32s ease'; const dx=e.changedTouches[0].clientX-_tsx; if(dx>70){closeNav();}else{navLinks.style.transform='translateX(0)';overlay.style.background='rgba(0,0,0,0.45)';} }, {passive:true});
+  requestAnimationFrame(() => {
+    const navH = document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 60;
+    overlay.style.top = navH + 'px';
+  });
   function openNav() {
     navLinks.classList.add('open');
     toggle.classList.add('open');
@@ -243,12 +242,40 @@
     document.body.style.overflow = 'hidden';
   }
   function closeNav() {
+    navLinks.style.transform = '';  // clear any inline drag transform first
     navLinks.classList.remove('open');
     toggle.classList.remove('open');
     overlay.style.background = 'rgba(0,0,0,0)';
     document.body.style.overflow = '';
     setTimeout(() => { overlay.style.display = 'none'; }, 320);
   }
+  // swipe-to-close — fixed transition timing
+  let _tsx = 0;
+  navLinks.addEventListener('touchstart', (e) => {
+    _tsx = e.touches[0].clientX;
+    navLinks.style.transition = 'none';
+    overlay.style.transition = 'none';
+  }, {passive: true});
+  navLinks.addEventListener('touchmove', (e) => {
+    const dx = e.touches[0].clientX - _tsx;
+    if (dx > 0) {
+      navLinks.style.transform = `translateX(${dx}px)`;
+      overlay.style.background = `rgba(0,0,0,${Math.max(0, 0.45 * (1 - dx / 220))})`;
+    }
+  }, {passive: true});
+  navLinks.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - _tsx;
+    // restore transitions before deciding what to do
+    navLinks.style.transition = 'transform 0.32s cubic-bezier(0.4,0,0.2,1)';
+    overlay.style.transition = 'background 0.32s ease';
+    if (dx > 70) {
+      closeNav();  // closeNav clears inline transform, CSS slides it out
+    } else {
+      navLinks.style.transform = 'translateX(0)';  // snap back
+      overlay.style.background = 'rgba(0,0,0,0.45)';
+      setTimeout(() => { navLinks.style.transform = ''; }, 340);  // clear inline after snap
+    }
+  }, {passive: true});
   toggle.addEventListener('click', () => navLinks.classList.contains('open') ? closeNav() : openNav());
   overlay.addEventListener('click', closeNav);
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
