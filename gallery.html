@@ -56,12 +56,30 @@
     .gallery-main { padding: 5rem 1.5rem; background: var(--cream); }
     .gallery-main .inner { max-width: 1100px; margin: 0 auto; text-align: center; }
     .gallery-main-intro { max-width: 600px; margin: 0 auto 3rem; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; color: var(--muted); line-height: 1.85; }
-    .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    @media (max-width: 700px) { .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; } }
-    @media (max-width: 420px) { .photo-grid { grid-template-columns: 1fr; } }
-    .photo-item { overflow: hidden; border-radius: 3px; aspect-ratio: 4/3; position: relative; background: var(--dark); }
-    .photo-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
-    .photo-item:hover img { transform: scale(1.05); }
+    /* Gallery sections */
+    .gallery-section { margin-bottom: 3.5rem; text-align: left; }
+    .gallery-cat { font-family: 'Lato', sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--muted); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(212,160,74,0.3); }
+    /* Photo items */
+    .photo-item { overflow: hidden; border-radius: 2px; position: relative; background: var(--dark); }
+    .photo-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .photo-item:hover img { transform: scale(1.06); }
+    .photo-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.7rem 1rem; background: linear-gradient(transparent, rgba(20,8,8,0.85)); color: #f0ddb0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.87rem; opacity: 0; transform: translateY(5px); transition: opacity 0.3s ease, transform 0.3s ease; pointer-events: none; }
+    .photo-item:hover .photo-caption { opacity: 1; transform: translateY(0); }
+    /* Ambiance grid: tall hero left, two stacked right */
+    .g-ambiance { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 270px 270px; gap: 10px; }
+    .g-ambiance .g-hero { grid-row: span 2; }
+    /* Food grid: wide featured top, 2-col below */
+    .g-food { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .g-food .photo-item { height: 280px; }
+    .g-food .g-featured { grid-column: span 2; height: 340px; }
+    /* Mobile */
+    @media (max-width: 680px) {
+      .g-ambiance { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .g-ambiance .photo-item { height: 240px; }
+      .g-ambiance .g-hero { grid-row: span 1; height: 280px; }
+      .g-food { grid-template-columns: 1fr; }
+      .g-food .photo-item, .g-food .g-featured { height: 240px; }
+    }
     /* DIVIDER SECTION */
     .gallery-divider { background: var(--parchment); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); padding: 4rem 1.5rem; text-align: center; }
     .gallery-divider .inner { max-width: 680px; margin: 0 auto; }
@@ -91,7 +109,7 @@
     @media (max-width: 480px) {
       .gallery-main { padding: 3rem 1rem; }
       .gallery-divider { padding: 3rem 1.2rem; }
-      .photo-grid { gap: 6px; }
+
     }
 
     /* SCROLL FADE-IN */
@@ -110,8 +128,8 @@
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="menu.html">Menu</a></li>
-    <li><a href="about.html">About</a></li>
     <li><a href="specials.html">Specials</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="gallery.html" class="active">Gallery</a></li>
     <li><a href="location.html">Hours &amp; Location</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -129,36 +147,51 @@
 <!-- GALLERY GRID -->
 <section class="gallery-main">
   <div class="inner">
-    <h2 class="section-heading">From Our Kitchen</h2>
-    <p class="section-sub">Every dish, made with intention</p>
-    <p class="gallery-main-intro">From the glass-panelled tandoor kitchen to the dining room and the plates that leave it — this is what India Avenue looks like. Every photo is from our restaurant.</p>
-    <div class="photo-grid">
-      <div class="photo-item">
-        <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927767_orbv1z.jpeg" alt="India Avenue signature dishes">
+    <h2 class="section-heading">A Visual Tour</h2>
+    <p class="section-sub">Food, ambiance &amp; everything in between</p>
+    <p class="gallery-main-intro">From the dining room to the plates that leave our kitchen — this is what India Avenue looks like. Every photo is from our restaurant.</p>
+
+    <div class="gallery-section">
+      <p class="gallery-cat">The Dining Room</p>
+      <div class="g-ambiance">
+        <div class="photo-item g-hero">
+          <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927804_odg1fy.jpeg" alt="India Avenue dining room">
+          <span class="photo-caption">The dining room — warm and welcoming</span>
+        </div>
+        <div class="photo-item">
+          <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927767_orbv1z.jpeg" alt="Set for an evening at India Avenue">
+          <span class="photo-caption">Set for the evening</span>
+        </div>
+        <div class="photo-item">
+          <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/1bb77e5d-9379-43cd-96a3-b1f7e6d5a368/1770927767_s2yxcs.jpeg" alt="India Avenue table setting">
+          <span class="photo-caption">Ready to welcome you</span>
+        </div>
       </div>
-      <div class="photo-item">
-        <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/1bb77e5d-9379-43cd-96a3-b1f7e6d5a368/1770927815_p46rpw.jpeg" alt="India Avenue dining room">
-      </div>
-      <div class="photo-item">
-        <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927780_7p9gy6.jpeg" alt="Indian cuisine at India Avenue">
-      </div>
-      <div class="photo-item">
-        <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927789_f54e01.jpeg" alt="Curry dish fresh from the kitchen">
-      </div>
-      <div class="photo-item">
-        <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927804_odg1fy.jpeg" alt="India Avenue plating">
-      </div>
-      <div class="photo-item">
-        <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927826_t172fs.jpeg" alt="Tandoor dishes">
-      </div>
-      <div class="photo-item">
-        <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/1bb77e5d-9379-43cd-96a3-b1f7e6d5a368/1770927826_pk3e4c.jpeg" alt="India Avenue ambience and decor">
-      </div>
-      <div class="photo-item">
-        <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927835_98t01f.jpeg" alt="Naan and curries">
-      </div>
-      <div class="photo-item">
-        <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/1bb77e5d-9379-43cd-96a3-b1f7e6d5a368/1770927767_s2yxcs.jpeg" alt="India Avenue restaurant exterior">
+    </div>
+
+    <div class="gallery-section">
+      <p class="gallery-cat">From the Kitchen</p>
+      <div class="g-food">
+        <div class="photo-item g-featured">
+          <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927835_98t01f.jpeg" alt="Naan, butter chicken and basmati rice">
+          <span class="photo-caption">Naan, butter chicken &amp; basmati rice</span>
+        </div>
+        <div class="photo-item">
+          <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/1bb77e5d-9379-43cd-96a3-b1f7e6d5a368/1770927815_p46rpw.jpeg" alt="Masala dosa">
+          <span class="photo-caption">Masala dosa</span>
+        </div>
+        <div class="photo-item">
+          <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927826_t172fs.jpeg" alt="Tandoori chicken sizzler">
+          <span class="photo-caption">Tandoori chicken sizzler</span>
+        </div>
+        <div class="photo-item">
+          <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927780_7p9gy6.jpeg" alt="Lamb kebab with saffron rice">
+          <span class="photo-caption">Lamb kebab with saffron rice</span>
+        </div>
+        <div class="photo-item">
+          <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927789_f54e01.jpeg" alt="Samosas — the classic starter">
+          <span class="photo-caption">Samosas — the classic starter</span>
+        </div>
       </div>
     </div>
   </div>
