@@ -49,7 +49,6 @@
     /* SECTION BASICS */
     .section-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.5rem); color: var(--red); margin-bottom: 0.35rem; line-height: 1.2; }
     .section-sub { font-family: 'Dancing Script', cursive; font-size: 1.2rem; color: var(--saffron); margin-bottom: 1.4rem; }
-    .ornament { display: block; text-align: center; color: var(--gold); font-size: 1.2rem; letter-spacing: 0.4em; margin: 0.8rem 0 2rem; opacity: 0.65; }
     /* ABOUT */
     #about { background: var(--parchment); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); padding: 4.5rem 1.5rem; }
     .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: start; }
@@ -72,23 +71,27 @@
     @media (max-width: 640px) { .specials-inner { grid-template-columns: 1fr; gap: 2rem; } }
     #specials .section-heading { color: var(--gold); }
     #specials .section-sub { color: #f0c86a; }
-    .specials-cards { display: flex; flex-direction: column; gap: 1rem; }
-    .special-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(212,160,74,0.3); border-radius: 4px; padding: 1.1rem 1.3rem; display: flex; align-items: flex-start; gap: 1rem; }
-    .special-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
-    .special-title { font-family: 'Playfair Display', serif; font-size: 1rem; color: #ffe8b8; margin-bottom: 0.25rem; }
-    .special-desc { font-size: 0.85rem; color: #d4b890; line-height: 1.5; }
+    .specials-list { margin-top: 0.2rem; }
+    .special-item { padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .special-item:last-child { border-bottom: none; }
+    .special-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.2rem; }
+    .special-name { font-family: 'Playfair Display', serif; font-size: 1.02rem; color: #ffe8b8; }
+    .special-price { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--gold); font-style: italic; white-space: nowrap; margin-left: 1rem; }
+    .special-dishes { font-size: 0.83rem; color: #c9a870; line-height: 1.55; }
     .specials-cta { color: var(--cream); }
     .specials-cta p { font-size: 1.05rem; line-height: 1.8; color: #f0ddb0; margin-bottom: 1.5rem; }
     .specials-cta a { margin-right: 0.7rem; margin-bottom: 0.7rem; display: inline-block; }
     /* REVIEWS */
     #reviews { padding: 4.5rem 1.5rem; background: var(--parchment); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); }
     #reviews .inner { max-width: 1100px; margin: 0 auto; text-align: center; }
-    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.4rem; margin-top: 2.2rem; text-align: left; }
-    .review-card { background: #fff; border: 1px solid #e0ceaf; border-radius: 4px; padding: 1.4rem 1.5rem; }
-    .review-stars { color: #f4a400; font-size: 1rem; letter-spacing: 0.1em; margin-bottom: 0.7rem; }
-    .review-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.97rem; color: var(--text); line-height: 1.75; margin-bottom: 1rem; }
-    .review-author { font-size: 0.82rem; color: var(--muted); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
-    .review-source { font-size: 0.77rem; color: #999; margin-top: 0.15rem; }
+    .reviews-grid { max-width: 720px; margin: 1.6rem auto 0; text-align: left; }
+    .review-card { padding: 1.8rem 0 1.6rem; border-bottom: 1px solid rgba(180,148,96,0.22); }
+    .review-card:last-child { border-bottom: none; }
+    .review-stars { display: none; }
+    .review-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.02rem; color: var(--text); line-height: 1.85; margin-bottom: 0.9rem; position: relative; padding-left: 1.6rem; }
+    .review-text::before { content: '\201C'; position: absolute; left: 0; top: -0.35rem; font-size: 2.6rem; color: var(--gold); opacity: 0.45; font-style: normal; line-height: 1; font-family: 'Playfair Display', serif; }
+    .review-author { font-size: 0.85rem; color: var(--muted); font-weight: 700; letter-spacing: 0.04em; padding-left: 1.6rem; }
+    .review-source { font-size: 0.78rem; color: #b0926e; margin-top: 0.1rem; padding-left: 1.6rem; }
     .reviews-cta { margin-top: 2rem; }
     .reviews-cta a { font-size: 0.88rem; color: var(--muted); border-bottom: 1px solid var(--muted); text-decoration: none; }
     .reviews-cta a:hover { color: var(--red); border-color: var(--red); }
@@ -187,7 +190,7 @@
 
 <!-- HERO -->
 <header class="hero">
-  <p class="hero-eyebrow">✦ Greenwich, Connecticut ✦</p>
+  <p class="hero-eyebrow">Greenwich, Connecticut</p>
   <h1>India Avenue</h1>
   <p class="hero-tagline">A culinary adventure to the farthest corners of India — the finest in Indian cuisine, brought to your table with warmth and grace.</p>
   <div class="hero-buttons">
@@ -227,7 +230,6 @@
   <div class="inner">
     <h2 class="section-heading" style="text-align:center">From Our Kitchen</h2>
     <p class="section-sub" style="text-align:center">A glimpse at what awaits you</p>
-    <span class="ornament">✦ ✦ ✦</span>
     <div class="gallery-grid">
       <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927780_7p9gy6.jpeg" alt="Lamb chops with lemon rice">
       <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/1bb77e5d-9379-43cd-96a3-b1f7e6d5a368/1770927815_p46rpw.jpeg" alt="Masala dosa">
@@ -246,37 +248,41 @@
       <h2 class="section-heading">Lunch Specials</h2>
       <p class="section-sub">A Greenwich staple, every weekday</p>
       <span style="display:inline-block; background:rgba(255,255,255,0.15); color:#ffe8b8; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:3px; margin-bottom:1.3rem; border:1px solid rgba(255,255,255,0.25);">Mon – Fri &nbsp;·&nbsp; 11:30 AM – 2:30 PM</span>
-      <div class="specials-cards">
-        <div class="special-card">
-          <div>
-            <div class="special-title">🌿 Vegetarian · $13.95</div>
-            <div class="special-desc">Saag Paneer · Chana Masala · Aloo Gobi · Kadai Paneer · Tadka Dal · Gobi Manchurian</div>
+      <div class="specials-list">
+        <div class="special-item">
+          <div class="special-header">
+            <span class="special-name">Vegetarian</span>
+            <span class="special-price">$13.95</span>
           </div>
+          <div class="special-dishes">Saag Paneer · Chana Masala · Aloo Gobi · Kadai Paneer · Tadka Dal · Gobi Manchurian</div>
         </div>
-        <div class="special-card">
-          <div>
-            <div class="special-title">🍗 Chicken · $14.95</div>
-            <div class="special-desc">Tikka Masala · Chettinad · Vindaloo · Kadai Chicken · Manchurian</div>
+        <div class="special-item">
+          <div class="special-header">
+            <span class="special-name">Chicken</span>
+            <span class="special-price">$14.95</span>
           </div>
+          <div class="special-dishes">Tikka Masala · Chettinad · Vindaloo · Kadai Chicken · Manchurian</div>
         </div>
-        <div class="special-card">
-          <div>
-            <div class="special-title">🥩 Lamb · $15.95</div>
-            <div class="special-desc">Rogan Josh · Saag · Vindaloo · Tikka Masala</div>
+        <div class="special-item">
+          <div class="special-header">
+            <span class="special-name">Lamb</span>
+            <span class="special-price">$15.95</span>
           </div>
+          <div class="special-dishes">Rogan Josh · Saag · Vindaloo · Tikka Masala</div>
         </div>
-        <div class="special-card">
-          <div>
-            <div class="special-title">🫓 Kathi Rolls · from $12.95</div>
-            <div class="special-desc">Paneer · Veg · Chicken · Lamb</div>
+        <div class="special-item">
+          <div class="special-header">
+            <span class="special-name">Kathi Rolls</span>
+            <span class="special-price">from $12.95</span>
           </div>
+          <div class="special-dishes">Paneer · Veg · Chicken · Lamb</div>
         </div>
       </div>
     </div>
     <div class="specials-cta">
       <p>A complete, warm Indian meal at an honest price — served every weekday. The same care that goes into our dinner service, in a format built for the midday hour.</p>
-      <a class="btn btn-border" href="specials.html">See Full Lunch Menu</a>
-      <a class="btn btn-border" href="menu.html">Full Dinner Menu</a>
+      <a class="btn btn-warm" href="specials.html">See Full Lunch Menu</a>
+      <a href="menu.html" style="font-size:0.88rem; color:#e8d5a8; text-decoration:none; border-bottom:1px solid rgba(232,213,168,0.35); margin-left:1.2rem; white-space:nowrap;">Full Dinner Menu →</a>
     </div>
   </div>
 </div>
@@ -286,7 +292,6 @@
   <div class="inner">
     <h2 class="section-heading">What Our Guests Say</h2>
     <p class="section-sub">Rated 4.5 on TripAdvisor · #14 of 111 restaurants in Greenwich</p>
-    <span class="ornament">✦ ✦ ✦</span>
     <div class="reviews-grid">
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
