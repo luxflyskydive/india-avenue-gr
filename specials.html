@@ -35,13 +35,18 @@
     .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 6px; }
     .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
     @media (max-width: 820px) {
-      nav { flex-wrap: wrap; padding: 0.4rem 1rem; gap: 0; }
-      .nav-toggle { display: none; }
-      .nav-links { display: flex !important; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; flex-direction: row; align-items: center; position: static; background: transparent; padding: 0.15rem 0 0.4rem; gap: 0; border-top: 1px solid rgba(255,255,255,0.07); flex-wrap: nowrap; }
-      .nav-links::-webkit-scrollbar { display: none; }
-      .nav-links li { flex-shrink: 0; }
-      .nav-links a { font-size: 0.78rem; padding: 0.25rem 0.52rem; white-space: nowrap; }
-      .nav-order { padding: 0.25rem 0.6rem !important; font-size: 0.76rem !important; }
+      .nav-toggle { display: flex; }
+      /* hamburger → X animation */
+      .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+      .nav-toggle.open span:nth-child(2) { opacity: 0; transform: translateX(-8px); }
+      .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+      /* side drawer */
+      .nav-links { display: flex; flex-direction: column; align-items: flex-start; position: fixed; top: 0; right: 0; bottom: 0; width: min(300px, 82vw); background: #1a0808; padding: 4.5rem 2rem 2.5rem; gap: 0; z-index: 200; transform: translateX(100%); transition: transform 0.32s cubic-bezier(0.4,0,0.2,1); border-left: 1px solid rgba(212,160,74,0.25); box-shadow: -4px 0 28px rgba(0,0,0,0.45); }
+      .nav-links.open { transform: translateX(0); }
+      .nav-links li { width: 100%; }
+      .nav-links a { font-size: 1rem; padding: 0.85rem 0; width: 100%; border-bottom: 1px solid rgba(212,160,74,0.1); letter-spacing: 0.06em; }
+      .nav-links a:last-child { border-bottom: none; }
+      .nav-order { border: 1.5px solid var(--saffron) !important; border-radius: 4px !important; padding: 0.5rem 1rem !important; margin-top: 1rem; display: inline-block !important; width: auto !important; }
     }
     /* PAGE HERO — dark warm gradient */
     .page-hero { min-height: 44vh; background: linear-gradient(120deg, #3a0e0e 0%, #5c2008 60%, #8b4010 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 3rem 1.5rem; }
@@ -276,8 +281,27 @@
 <script>
   const toggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  // overlay for drawer
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0);z-index:199;display:none;transition:background 0.32s ease;';
+  document.body.appendChild(overlay);
+  function openNav() {
+    navLinks.classList.add('open');
+    toggle.classList.add('open');
+    overlay.style.display = 'block';
+    requestAnimationFrame(() => { overlay.style.background = 'rgba(0,0,0,0.45)'; });
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNav() {
+    navLinks.classList.remove('open');
+    toggle.classList.remove('open');
+    overlay.style.background = 'rgba(0,0,0,0)';
+    document.body.style.overflow = '';
+    setTimeout(() => { overlay.style.display = 'none'; }, 320);
+  }
+  toggle.addEventListener('click', () => navLinks.classList.contains('open') ? closeNav() : openNav());
+  overlay.addEventListener('click', closeNav);
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
 
   // Scroll fade-in
   (function(){
