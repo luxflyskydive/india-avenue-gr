@@ -14,7 +14,7 @@
       --text: #2d1a0e; --muted: #6b4c35;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.7; }
+    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
     .btn { display: inline-block; padding: 0.6rem 1.4rem; border-radius: 4px; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.05em; text-decoration: none; transition: all 0.22s; cursor: pointer; }
     .btn-border { border: 1.5px solid rgba(255,255,255,0.6); color: #fff; background: transparent; }
     .btn-border:hover { background: rgba(255,255,255,0.13); }
@@ -69,6 +69,17 @@
     #specials { background: linear-gradient(120deg, #3a0e0e 0%, #5c2008 60%, #8b4010 100%); padding: 4rem 1.5rem; }
     .specials-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
     @media (max-width: 640px) { .specials-inner { grid-template-columns: 1fr; gap: 2rem; } }
+    @media (max-width: 480px) {
+      .hero { padding: 2rem 1.2rem 4rem; }
+      .hero h1 { font-size: 3rem; }
+      .hero-tagline { font-size: 0.97rem; }
+      .hero-buttons { flex-direction: column; align-items: center; gap: 0.7rem; }
+      .hero-buttons .btn { width: 100%; max-width: 280px; text-align: center; }
+      .special-header { flex-wrap: nowrap; }
+      .review-text { padding-left: 1.2rem; font-size: 0.97rem; }
+      .review-text::before { font-size: 2rem; }
+      .accolade-div { display: none; }
+    }
     #specials .section-heading { color: var(--gold); }
     #specials .section-sub { color: #f0c86a; }
     .specials-list { margin-top: 0.2rem; }
@@ -280,9 +291,9 @@
       </div>
     </div>
     <div class="specials-cta">
-      <p>A complete, warm Indian meal at an honest price — served every weekday. The same care that goes into our dinner service, in a format built for the midday hour.</p>
+      <p>A complete, warm Indian meal — served every weekday. The same care that goes into our dinner service, in a format built for the midday hour.</p>
       <a class="btn btn-warm" href="specials.html">See Full Lunch Menu</a>
-      <a href="menu.html" style="font-size:0.88rem; color:#e8d5a8; text-decoration:none; border-bottom:1px solid rgba(232,213,168,0.35); margin-left:1.2rem; white-space:nowrap;">Full Dinner Menu →</a>
+      <a href="menu.html" style="font-size:0.88rem; color:#e8d5a8; text-decoration:none; border-bottom:1px solid rgba(232,213,168,0.35); display:inline-block; margin-top:0.7rem;">Full Dinner Menu →</a>
     </div>
   </div>
 </div>

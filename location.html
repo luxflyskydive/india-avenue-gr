@@ -14,7 +14,7 @@
       --text: #2d1a0e; --muted: #6b4c35;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.7; }
+    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
     .btn { display: inline-block; padding: 0.6rem 1.4rem; border-radius: 4px; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.05em; text-decoration: none; transition: all 0.22s; cursor: pointer; }
     .btn-border { border: 1.5px solid rgba(255,255,255,0.6); color: #fff; background: transparent; }
     .btn-border:hover { background: rgba(255,255,255,0.13); }
@@ -88,10 +88,10 @@
     .nearby .section-heading { color: var(--gold); }
     .nearby .section-sub { color: #f0c86a; }
     .nearby-grid { display: flex; flex-direction: column; margin-top: 1.8rem; }
-    .nearby-item { padding: 0.75rem 0; border-bottom: 1px solid rgba(212,160,74,0.18); display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+    .nearby-item { padding: 0.75rem 0; border-bottom: 1px solid rgba(212,160,74,0.18); display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
     .nearby-item:last-child { border-bottom: none; }
     .nearby-item-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #e8d5a8; }
-    .nearby-item-dist { font-size: 0.8rem; color: #7a5a40; text-align: right; }
+    .nearby-item-dist { font-size: 0.8rem; color: #7a5a40; text-align: right; flex-shrink: 0; max-width: 55%; }
     /* ORDER BANNER */
     .order-banner { background: linear-gradient(90deg, var(--red) 0%, var(--saffron) 100%); padding: 2.2rem 1.5rem; text-align: center; }
     .order-banner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.1rem, 3vw, 1.6rem); color: #fff; margin-bottom: 1.1rem; }
@@ -117,6 +117,15 @@
     img { max-width: 100%; height: auto; }
     @media (max-width: 500px) {
       .map-embed { aspect-ratio: 1/1; }
+    }
+    @media (max-width: 480px) {
+      .nearby-item { flex-direction: column; gap: 0.15rem; }
+      .nearby-item-dist { text-align: left; max-width: 100%; }
+      .directions-grid { gap: 0; }
+      .direction-card { padding: 1.2rem 0; }
+      .getting-here { padding: 3.5rem 1.2rem; }
+      .nearby { padding: 3.5rem 1.2rem; }
+      .hours-map { padding: 3.5rem 1.2rem; }
     }
   </style>
 </head>

@@ -14,7 +14,7 @@
       --text: #2d1a0e; --muted: #6b4c35;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.7; }
+    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
     .btn { display: inline-block; padding: 0.6rem 1.4rem; border-radius: 4px; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.05em; text-decoration: none; transition: all 0.22s; cursor: pointer; }
     .btn-warm { border: 1.5px solid var(--saffron); color: var(--saffron); background: transparent; }
     .btn-warm:hover { background: var(--saffron); color: var(--dark); }
@@ -99,6 +99,12 @@
 
     /* MOBILE TOUCH + RESPONSIVE */
     img { max-width: 100%; height: auto; }
+    @media (max-width: 480px) {
+      .contact-main { padding: 3.5rem 1.2rem; }
+      .faq { padding: 3.5rem 1.2rem; }
+      .faq-q { font-size: 0.95rem; }
+      .contact-method-desc { font-size: 0.84rem; }
+    }
     @media (max-width: 600px) {
       .contact-form button { width: 100%; text-align: center; padding: 0.85rem 1rem; font-size: 1rem; }
     }

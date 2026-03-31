@@ -14,7 +14,7 @@
       --text: #2d1a0e; --muted: #6b4c35;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.7; }
+    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
     .btn { display: inline-block; padding: 0.6rem 1.4rem; border-radius: 4px; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.05em; text-decoration: none; transition: all 0.22s; cursor: pointer; }
     .btn-border { border: 1.5px solid rgba(255,255,255,0.6); color: #fff; background: transparent; }
     .btn-border:hover { background: rgba(255,255,255,0.13); }
@@ -111,6 +111,13 @@
     /* MOBILE RESPONSIVE IMAGES */
     img { max-width: 100%; height: auto; }
     .private-image img { height: 240px; object-fit: cover; }
+    @media (max-width: 480px) {
+      .lunch { padding: 3.5rem 1.2rem; }
+      .lunch-inner { gap: 2rem; }
+      .lunch-item-name { font-size: 0.97rem; }
+      .seasonal-title { font-size: 1.1rem; }
+      .seasonal { padding: 3.5rem 1.2rem; }
+    }
     @media (min-width: 600px) {
       .private-image img { height: 360px; }
     }
