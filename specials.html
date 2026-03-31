@@ -41,12 +41,12 @@
       .nav-toggle.open span:nth-child(2) { opacity: 0; transform: translateX(-8px); }
       .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
       /* side drawer */
-      .nav-links { display: flex; flex-direction: column; align-items: flex-start; position: fixed; top: 0; right: 0; bottom: 0; width: min(300px, 82vw); background: #1a0808; padding: 4.5rem 2rem 2.5rem; gap: 0; z-index: 200; transform: translateX(100%); transition: transform 0.32s cubic-bezier(0.4,0,0.2,1); border-left: 1px solid rgba(212,160,74,0.25); box-shadow: -4px 0 28px rgba(0,0,0,0.45); }
+      .nav-links { display: flex; flex-direction: column; align-items: flex-start; position: fixed; top: 60px; right: 0; bottom: 0; width: min(280px, 82vw); background: #f3e8cc; padding: 1.5rem 1.5rem 2.5rem; gap: 0; z-index: 200; transform: translateX(100%); transition: transform 0.32s cubic-bezier(0.4,0,0.2,1); border-left: 1px solid rgba(212,160,74,0.45); box-shadow: -4px 0 24px rgba(0,0,0,0.25); }
       .nav-links.open { transform: translateX(0); }
       .nav-links li { width: 100%; }
-      .nav-links a { font-size: 1rem; padding: 0.85rem 0; width: 100%; border-bottom: 1px solid rgba(212,160,74,0.1); letter-spacing: 0.06em; }
+      .nav-links a { font-size: 0.82rem; padding: 0.85rem 0; width: 100%; color: #2d1a0e !important; border-bottom: 1px solid rgba(122,28,28,0.12); letter-spacing: 0.07em; }
       .nav-links a:last-child { border-bottom: none; }
-      .nav-order { border: 1.5px solid var(--saffron) !important; border-radius: 4px !important; padding: 0.5rem 1rem !important; margin-top: 1rem; display: inline-block !important; width: auto !important; }
+      .nav-order { background: var(--saffron) !important; color: var(--dark) !important; border: 1.5px solid var(--saffron) !important; border-radius: 4px !important; padding: 0.5rem 1rem !important; margin-top: 0.8rem; display: inline-block !important; width: auto !important; font-weight: 700 !important; }
     }
     /* PAGE HERO — dark warm gradient */
     .page-hero { min-height: 44vh; background: linear-gradient(120deg, #3a0e0e 0%, #5c2008 60%, #8b4010 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 3rem 1.5rem; }
@@ -283,8 +283,13 @@
   const navLinks = document.getElementById('navLinks');
   // overlay for drawer
   const overlay = document.createElement('div');
-  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0);z-index:199;display:none;transition:background 0.32s ease;';
+  overlay.style.cssText = 'position:fixed;left:0;right:0;bottom:0;top:60px;background:rgba(0,0,0,0);z-index:199;display:none;transition:background 0.32s ease;';
   document.body.appendChild(overlay);
+  // swipe to close
+  let _tsx = 0;
+  navLinks.addEventListener('touchstart', (e) => { _tsx = e.touches[0].clientX; navLinks.style.transition='none'; overlay.style.transition='none'; }, {passive:true});
+  navLinks.addEventListener('touchmove', (e) => { const dx = e.touches[0].clientX - _tsx; if(dx>0){ navLinks.style.transform=`translateX(${dx}px)`; overlay.style.background=`rgba(0,0,0,${Math.max(0,0.45*(1-dx/220))})`;} }, {passive:true});
+  navLinks.addEventListener('touchend', (e) => { navLinks.style.transition=''; overlay.style.transition='background 0.32s ease'; const dx=e.changedTouches[0].clientX-_tsx; if(dx>70){closeNav();}else{navLinks.style.transform='translateX(0)';overlay.style.background='rgba(0,0,0,0.45)';} }, {passive:true});
   function openNav() {
     navLinks.classList.add('open');
     toggle.classList.add('open');
