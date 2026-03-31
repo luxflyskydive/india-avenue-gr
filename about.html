@@ -54,15 +54,7 @@
     .story-text p { margin-bottom: 1.1rem; font-size: 1rem; line-height: 1.9; color: var(--text); }
     .story-image { border-radius: 3px; overflow: hidden; border: 3px solid rgba(212,160,74,0.35); }
     .story-image img { width: 100%; height: 340px; object-fit: cover; display: block; }
-    /* PHILOSOPHY */
-    .philosophy { padding: 5rem 1.5rem; background: var(--cream); }
-    .philosophy .inner { max-width: 1100px; margin: 0 auto; text-align: center; }
-    .philosophy-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 2.5rem; }
-    @media (max-width: 700px) { .philosophy-grid { grid-template-columns: 1fr; } }
-    .philosophy-card { background: var(--parchment); border: 1px solid #e0ceaf; border-radius: 4px; padding: 2rem 1.5rem; text-align: left; }
-    .philosophy-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
-    .philosophy-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--red); margin-bottom: 0.5rem; }
-    .philosophy-text { font-size: 0.92rem; color: var(--muted); line-height: 1.75; }
+
     /* KITCHEN */
     .kitchen { background: var(--dark); padding: 5rem 1.5rem; }
     .kitchen-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 4rem; align-items: center; }
@@ -72,10 +64,7 @@
     .kitchen-text p { font-size: 0.97rem; color: #d4b890; line-height: 1.85; margin-bottom: 1rem; }
     .kitchen-image { border-radius: 3px; overflow: hidden; border: 2px solid rgba(212,160,74,0.3); }
     .kitchen-image img { width: 100%; height: 380px; object-fit: cover; display: block; }
-    .tandoor-facts { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
-    .tandoor-fact { display: flex; align-items: flex-start; gap: 0.9rem; border-left: 3px solid var(--gold); padding-left: 0.9rem; }
-    .tandoor-fact-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--saffron); font-weight: 700; margin-bottom: 0.15rem; }
-    .tandoor-fact-value { font-size: 0.88rem; color: #c9a870; }
+
     /* ORDER BANNER */
     .order-banner { background: linear-gradient(90deg, var(--red) 0%, var(--saffron) 100%); padding: 2.2rem 1.5rem; text-align: center; }
     .order-banner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.1rem, 3vw, 1.6rem); color: #fff; margin-bottom: 1.1rem; }
@@ -150,31 +139,7 @@
   </div>
 </section>
 
-<!-- PHILOSOPHY -->
-<section class="philosophy">
-  <div class="inner">
-    <h2 class="section-heading">Our Philosophy</h2>
-    <p class="section-sub">Three things we never compromise on</p>
-    <span class="ornament">✦ ✦ ✦</span>
-    <div class="philosophy-grid">
-      <div class="philosophy-card">
-        <div class="philosophy-icon">🌿</div>
-        <div class="philosophy-title">Spice with Purpose</div>
-        <p class="philosophy-text">Every spice on our menu has a reason for being there. Our chefs blend spices fresh in-house, drawing on recipes refined over generations. Heat is a tool, not a shortcut — warmth and complexity are the goal.</p>
-      </div>
-      <div class="philosophy-card">
-        <div class="philosophy-icon">🍽️</div>
-        <div class="philosophy-title">Honest Portions</div>
-        <p class="philosophy-text">Indian cuisine was designed to be shared and savored slowly. Our portions are generous by design. Whether you order a single curry or a full spread for the table, you will leave with no regrets.</p>
-      </div>
-      <div class="philosophy-card">
-        <div class="philosophy-icon">🤝</div>
-        <div class="philosophy-title">Warmth of Service</div>
-        <p class="philosophy-text">In Indian culture, a guest is considered a gift. Our staff are trained not just to serve, but to welcome — to make every table feel like it belongs here. We mean it when we say we're glad you came.</p>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- THE KITCHEN -->
 <section class="kitchen">
@@ -184,29 +149,9 @@
       <p class="section-sub">A window into our craft</p>
       <div class="kitchen-text">
         <p>One of the signature features of India Avenue is our glass-panelled tandoor kitchen. Visible from the dining room, it gives our guests a rare and intimate look at the craft behind the food — the clay oven glowing with heat, the dough being stretched and slapped against its walls, the skewers of seasoned meats emerging with that unmistakable char.</p>
-        <p>The tandoor is not a prop. It is the heart of our kitchen. It burns at temperatures exceeding 480°C (900°F), sealing in juices and creating the distinct smoky character that no other cooking method can replicate. Our naans, breads, and tandoori dishes are all prepared here, to order, every time.</p>
+        <p>The tandoor is the heart of our kitchen. Our naans, breads, and tandoori dishes are all prepared here, to order, every time.</p>
       </div>
-      <div class="tandoor-facts">
-        <div class="tandoor-fact">
-          <div>
-            <div class="tandoor-fact-label">Temperature</div>
-            <div class="tandoor-fact-value">Up to 480°C — hotter than a conventional oven by nearly 3×</div>
           </div>
-        </div>
-        <div class="tandoor-fact">
-          <div>
-            <div class="tandoor-fact-label">Construction</div>
-            <div class="tandoor-fact-value">Traditional clay oven, hand-crafted and sealed with natural materials</div>
-          </div>
-        </div>
-        <div class="tandoor-fact">
-          <div>
-            <div class="tandoor-fact-label">What we cook in it</div>
-            <div class="tandoor-fact-value">Naan, roti, tandoori chicken, seekh kebabs, paneer tikka, and more</div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="kitchen-image">
       <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/social-media/c1012a6d-a02d-4c0e-bef9-a165a94764eb/medialibrary/1770927789_f54e01.jpeg" alt="India Avenue kitchen">
     </div>
@@ -241,7 +186,6 @@
         <div class="footer-col-title">Dining</div>
         <a href="menu.html">Our Menu</a>
         <a href="specials.html">Lunch Specials</a>
-        <a href="specials.html">Private Dining</a>
         <a href="https://order.toasttab.com/online/india-avenue-249-railroad-avenue" target="_blank" rel="noopener">Order Online</a>
       </div>
       <div class="footer-col">
