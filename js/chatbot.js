@@ -418,6 +418,7 @@
 
   // ─── Styles ──────────────────────────────────────────────────────────────────
   const STYLES = `
+    /* ── Toggle button ─────────────────────────────────────────── */
     #ia-chat-toggle {
       position: fixed; bottom: 24px; right: 24px; z-index: 9999;
       width: 60px; height: 60px; border-radius: 50%; border: none; cursor: pointer;
@@ -425,9 +426,41 @@
       box-shadow: 0 4px 20px rgba(200,131,26,0.5);
       display: flex; align-items: center; justify-content: center;
       transition: transform 0.2s, box-shadow 0.2s;
+      touch-action: manipulation; -webkit-tap-highlight-color: transparent;
     }
     #ia-chat-toggle:hover { transform: scale(1.08); box-shadow: 0 6px 26px rgba(200,131,26,0.65); }
     #ia-chat-toggle svg { pointer-events: none; }
+
+    /* ── Attention bubble ────────────────────────────────────────── */
+    #ia-chat-bubble {
+      position: fixed; bottom: 96px; right: 16px; z-index: 9998;
+      background: #fff; color: #1a1008;
+      padding: 9px 15px; border-radius: 18px 18px 4px 18px;
+      font-size: 13px; font-weight: 600; line-height: 1.3;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+      white-space: nowrap; cursor: pointer;
+      animation: ia-bubble-in 0.45s cubic-bezier(0.34,1.56,0.64,1) forwards;
+      -webkit-tap-highlight-color: transparent;
+    }
+    #ia-chat-bubble::after {
+      content: ''; position: absolute; bottom: -7px; right: 20px;
+      width: 0; height: 0;
+      border-left: 7px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 8px solid #fff;
+    }
+    @keyframes ia-bubble-in {
+      from { opacity: 0; transform: translateY(14px) scale(0.9); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .ia-bubble-out {
+      animation: ia-bubble-out 0.25s ease forwards !important;
+    }
+    @keyframes ia-bubble-out {
+      to { opacity: 0; transform: translateY(8px) scale(0.92); }
+    }
+
+    /* ── Chat window ─────────────────────────────────────────────── */
     #ia-chat-window {
       position: fixed; bottom: 96px; right: 24px; z-index: 9998;
       width: 360px; max-width: calc(100vw - 48px);
@@ -441,36 +474,45 @@
     #ia-chat-window.ia-open {
       transform: scale(1) translateY(0); opacity: 1; pointer-events: all;
     }
+
+    /* ── Header ──────────────────────────────────────────────────── */
     #ia-chat-header {
       background: linear-gradient(135deg, #c8831a 0%, #e6a020 100%);
       padding: 14px 18px; display: flex; align-items: center; gap: 12px;
+      flex-shrink: 0;
     }
     #ia-chat-header .ia-logo {
       width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.2);
       display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
     }
-    #ia-chat-header .ia-title { flex: 1; }
+    #ia-chat-header .ia-title { flex: 1; min-width: 0; }
     #ia-chat-header .ia-title strong { display: block; color: #fff; font-size: 15px; font-weight: 700; }
     #ia-chat-header .ia-title span { color: rgba(255,255,255,0.85); font-size: 12px; }
     #ia-chat-close {
       background: none; border: none; cursor: pointer; color: #fff; opacity: 0.8;
-      font-size: 22px; line-height: 1; padding: 2px 4px; border-radius: 4px;
-      transition: opacity 0.15s;
+      font-size: 22px; line-height: 1; padding: 6px 8px; border-radius: 6px;
+      transition: opacity 0.15s; flex-shrink: 0;
+      touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+      min-width: 36px; min-height: 36px; display: flex; align-items: center; justify-content: center;
     }
     #ia-chat-close:hover { opacity: 1; }
+
+    /* ── Messages ────────────────────────────────────────────────── */
     #ia-chat-messages {
       flex: 1; overflow-y: auto; padding: 16px 14px; display: flex;
       flex-direction: column; gap: 10px; max-height: 340px;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-y: contain;
       scrollbar-width: thin; scrollbar-color: #c8831a #1a1008;
     }
-    #ia-chat-messages::-webkit-scrollbar { width: 5px; }
-    #ia-chat-messages::-webkit-scrollbar-track { background: #1a1008; }
-    #ia-chat-messages::-webkit-scrollbar-thumb { background: #c8831a; border-radius: 3px; }
+    #ia-chat-messages::-webkit-scrollbar { width: 4px; }
+    #ia-chat-messages::-webkit-scrollbar-track { background: transparent; }
+    #ia-chat-messages::-webkit-scrollbar-thumb { background: #c8831a; border-radius: 2px; }
     .ia-msg {
-      max-width: 85%; padding: 10px 13px; border-radius: 14px;
-      font-size: 13.5px; line-height: 1.5; word-break: break-word;
+      max-width: 88%; padding: 10px 13px; border-radius: 14px;
+      font-size: 13.5px; line-height: 1.55; word-break: break-word;
     }
-    .ia-msg a { color: #e6a020; text-decoration: underline; }
+    .ia-msg a { color: #e6a020; }
     .ia-msg-bot {
       background: #2a1c08; color: #f5e6cc; border-radius: 14px 14px 14px 4px;
       align-self: flex-start;
@@ -494,27 +536,70 @@
       0%, 80%, 100% { transform: scale(0.7); opacity: 0.5; }
       40% { transform: scale(1); opacity: 1; }
     }
+
+    /* ── Input row ───────────────────────────────────────────────── */
     #ia-chat-input-row {
       display: flex; align-items: flex-end; gap: 8px;
-      padding: 10px 12px; background: #220e00; border-top: 1px solid #3a2008;
+      padding: 10px 12px; background: #220e00;
+      border-top: 1px solid #3a2008; flex-shrink: 0;
     }
     #ia-chat-input {
       flex: 1; background: #2a1c08; border: 1px solid #5a3a10; border-radius: 10px;
-      color: #f5e6cc; font-size: 13.5px; padding: 9px 12px; resize: none;
+      color: #f5e6cc;
+      /* 16px prevents iOS Safari auto-zoom on focus */
+      font-size: 16px;
+      padding: 8px 12px; resize: none;
       outline: none; font-family: inherit; line-height: 1.4; max-height: 100px;
       scrollbar-width: thin;
+      /* Prevent iOS elastic scroll inside textarea */
+      overscroll-behavior: none;
     }
-    #ia-chat-input::placeholder { color: #7a5a30; }
+    #ia-chat-input::placeholder { color: #7a5a30; font-size: 14px; }
     #ia-chat-input:focus { border-color: #c8831a; }
     #ia-chat-send {
-      flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; border: none;
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; border: none;
       background: linear-gradient(135deg, #c8831a, #e6a020); cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       transition: transform 0.15s, box-shadow 0.15s;
       box-shadow: 0 2px 8px rgba(200,131,26,0.4);
+      touch-action: manipulation; -webkit-tap-highlight-color: transparent;
     }
     #ia-chat-send:hover { transform: scale(1.1); box-shadow: 0 4px 14px rgba(200,131,26,0.6); }
     #ia-chat-send svg { pointer-events: none; }
+
+    /* ── Mobile: full-width, taller, avoid home indicator ───────── */
+    @media (max-width: 520px) {
+      #ia-chat-window {
+        right: 8px;
+        width: calc(100vw - 16px);
+        max-width: calc(100vw - 16px);
+        border-radius: 16px;
+      }
+      #ia-chat-toggle { right: 16px; }
+      #ia-chat-bubble { right: 12px; font-size: 12.5px; padding: 8px 13px; }
+      #ia-chat-messages { max-height: min(50dvh, 300px); }
+      .ia-msg { font-size: 14px; }
+    }
+
+    /* ── Safe-area insets (iPhone notch / home indicator) ───────── */
+    @supports (bottom: env(safe-area-inset-bottom)) {
+      #ia-chat-toggle {
+        bottom: calc(20px + env(safe-area-inset-bottom));
+        right:  calc(20px + env(safe-area-inset-right));
+      }
+      #ia-chat-window {
+        bottom: calc(92px + env(safe-area-inset-bottom));
+        right:  calc(20px + env(safe-area-inset-right));
+      }
+      #ia-chat-bubble {
+        bottom: calc(90px + env(safe-area-inset-bottom));
+        right:  calc(16px + env(safe-area-inset-right));
+      }
+    }
+    @supports (bottom: env(safe-area-inset-bottom)) and (max-width: 520px) {
+      #ia-chat-toggle { right: calc(12px + env(safe-area-inset-right)); }
+      #ia-chat-window { right: calc(8px  + env(safe-area-inset-right)); }
+    }
   `;
 
   // ─── DOM ─────────────────────────────────────────────────────────────────────
@@ -567,13 +652,21 @@
     let isOpen    = false;
     let greeted   = false;
 
+    function dismissBubble() {
+      const b = document.getElementById('ia-chat-bubble');
+      if (!b) return;
+      b.classList.add('ia-bubble-out');
+      setTimeout(() => b && b.parentNode && b.parentNode.removeChild(b), 260);
+    }
+
     function openChat() {
       isOpen = true;
+      dismissBubble();
       win.classList.add('ia-open');
       toggle.setAttribute('aria-label', 'Close India Avenue chat');
       toggle.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
       if (!greeted) { greeted = true; addBotMsg(getResponse('hello')); }
-      setTimeout(() => input.focus(), 280);
+      setTimeout(() => { try { input.focus(); } catch(e){} }, 280);
     }
 
     function closeChat() {
@@ -585,6 +678,35 @@
 
     toggle.addEventListener('click', () => isOpen ? closeChat() : openChat());
     closeBtn.addEventListener('click', closeChat);
+
+    // ── Attention bubble ─────────────────────────────────────────────
+    const bubble = document.createElement('div');
+    bubble.id = 'ia-chat-bubble';
+    bubble.innerHTML = '💬 Have a question? Ask here!';
+    bubble.setAttribute('role', 'button');
+    bubble.setAttribute('aria-label', 'Open chat assistant');
+    document.body.appendChild(bubble);
+    bubble.addEventListener('click', () => { dismissBubble(); openChat(); });
+
+    // Auto-dismiss bubble after 9 seconds
+    const bubbleTimeout = setTimeout(() => dismissBubble(), 9000);
+    bubble.addEventListener('click', () => clearTimeout(bubbleTimeout));
+
+    // ── iOS/Safari keyboard: resize window when virtual keyboard appears ──
+    if (window.visualViewport) {
+      const onVVResize = () => {
+        if (!isOpen) return;
+        const vvH = window.visualViewport.height;
+        const gap  = 16; // small gap above keyboard
+        const headerH = 70, inputRowH = 64;
+        const maxMsgs = Math.max(120, vvH - headerH - inputRowH - gap);
+        document.getElementById('ia-chat-messages').style.maxHeight = maxMsgs + 'px';
+        // Scroll messages to bottom so latest message stays visible
+        log.scrollTop = log.scrollHeight;
+      };
+      window.visualViewport.addEventListener('resize', onVVResize);
+      window.visualViewport.addEventListener('scroll', onVVResize);
+    }
 
     function appendMsg(html, cls) {
       const div = document.createElement('div');
