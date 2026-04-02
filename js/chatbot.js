@@ -555,6 +555,8 @@
       scrollbar-width: thin;
       /* Prevent iOS elastic scroll inside textarea */
       overscroll-behavior: none;
+      /* Prevent double-tap zoom on iOS */
+      touch-action: manipulation;
     }
     #ia-chat-input::placeholder { color: #7a5a30; font-size: 14px; }
     #ia-chat-input:focus { border-color: #c8831a; }
