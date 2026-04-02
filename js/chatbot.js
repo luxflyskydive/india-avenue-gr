@@ -718,7 +718,7 @@
     // ── Attention bubble ─────────────────────────────────────────────
     const bubble = document.createElement('div');
     bubble.id = 'ia-chat-bubble';
-    bubble.innerHTML = '💬 Have a question? Ask here!';
+    bubble.innerHTML = 'Have a question? Ask here!';
     bubble.setAttribute('role', 'button');
     bubble.setAttribute('aria-label', 'Open chat assistant');
     document.body.appendChild(bubble);
