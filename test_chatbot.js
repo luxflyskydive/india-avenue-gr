@@ -336,6 +336,75 @@ const TESTS = [
   { q: "How spicey is the food?",                          expect: "spice" },
   { q: "Where is you're resturant?",                       expect: "location" },
 
+  // ── DIETARY — KOSHER ──────────────────────────────────────────────────────
+  { q: "I'm kosher, what can I eat?",                   expect: "dietary" },
+  { q: "I am kosher",                                   expect: "dietary" },
+  { q: "I keep kosher",                                 expect: "dietary" },
+  { q: "Is the food kosher?",                           expect: "dietary" },
+  { q: "Is it kosher?",                                 expect: "dietary" },
+  { q: "Are you a kosher restaurant?",                  expect: "dietary" },
+  { q: "Do you have kosher food?",                      expect: "dietary" },
+  { q: "Do you have kosher options?",                   expect: "dietary" },
+  { q: "I keep kosher, what can I eat?",                expect: "dietary" },
+  { q: "I observe kashrut",                             expect: "dietary" },
+  { q: "I am strictly kosher",                          expect: "dietary" },
+
+  // ── DIETARY — HALAL ───────────────────────────────────────────────────────
+  { q: "Is the food halal?",                            expect: "dietary" },
+  { q: "Is it halal?",                                  expect: "dietary" },
+  { q: "Are you halal certified?",                      expect: "dietary" },
+  { q: "Do you have halal food?",                       expect: "dietary" },
+  { q: "Do you have halal options?",                    expect: "dietary" },
+  { q: "I am Muslim, what can I eat?",                  expect: "dietary" },
+  { q: "Do you serve pork?",                            expect: "dietary" },
+  { q: "Is there pork on the menu?",                    expect: "dietary" },
+  { q: "I avoid pork",                                  expect: "dietary" },
+  { q: "Is the meat halal?",                            expect: "dietary" },
+
+  // ── DIETARY — JAIN ────────────────────────────────────────────────────────
+  { q: "I am Jain, what can I eat?",                    expect: "dietary" },
+  { q: "Do you have Jain food?",                        expect: "dietary" },
+  { q: "Do you have Jain options?",                     expect: "dietary" },
+  { q: "I follow a Jain diet",                          expect: "dietary" },
+  { q: "I am strictly Jain",                            expect: "dietary" },
+  { q: "Can you avoid root vegetables?",                expect: "dietary" },
+
+  // ── DIETARY — HINDU / NO BEEF ─────────────────────────────────────────────
+  { q: "I am Hindu, do you serve beef?",                expect: "dietary" },
+  { q: "Do you serve beef?",                            expect: "dietary" },
+  { q: "Is there beef on the menu?",                    expect: "dietary" },
+  { q: "I don't eat beef",                              expect: "dietary" },
+  { q: "Is the restaurant beef free?",                  expect: "dietary" },
+
+  // ── DIETARY — GLUTEN ──────────────────────────────────────────────────────
+  { q: "I am gluten intolerant",                        expect: "dietary" },
+  { q: "Do you have gluten free options?",              expect: "dietary" },
+  { q: "Is there anything gluten free?",                expect: "dietary" },
+  { q: "I have celiac disease",                         expect: "dietary" },
+  { q: "I am coeliac",                                  expect: "dietary" },
+  { q: "What is gluten free on the menu?",              expect: "dietary" },
+  { q: "Do you have wheat free options?",               expect: "dietary" },
+  { q: "I have a gluten intolerance",                   expect: "dietary" },
+  { q: "Any gluten free options?",                      expect: "dietary" },
+
+  // ── DIETARY — DAIRY ───────────────────────────────────────────────────────
+  { q: "I am lactose intolerant",                       expect: "dietary" },
+  { q: "Do you have dairy free options?",               expect: "dietary" },
+  { q: "I can't have dairy",                            expect: "dietary" },
+  { q: "I have a milk allergy",                         expect: "dietary" },
+  { q: "I need dairy free dishes",                      expect: "dietary" },
+
+  // ── DIETARY — ALLERGIES ───────────────────────────────────────────────────
+  { q: "I have a peanut allergy",                       expect: "dietary" },
+  { q: "I have a nut allergy",                          expect: "dietary" },
+  { q: "I am allergic to shellfish",                    expect: "dietary" },
+  { q: "I have a sesame allergy",                       expect: "dietary" },
+  { q: "Can you accommodate my food allergy?",          expect: "dietary" },
+  { q: "Do you mark allergens on the menu?",            expect: "dietary" },
+  { q: "Do you have allergen information?",             expect: "dietary" },
+  { q: "I have a soy allergy",                          expect: "dietary" },
+  { q: "I have an egg allergy",                         expect: "dietary" },
+
   // ── GREETINGS ─────────────────────────────────────────────────────────────
   { q: "Hi",                                               expect: "greeting" },
   { q: "Hello",                                            expect: "greeting" },
