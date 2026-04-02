@@ -9,8 +9,8 @@
       keywords: [
         'hour', 'hours', 'open', 'opening', 'close', 'closing', 'closed',
         'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday',
-        'weekend', 'weekday', 'time', 'times', 'when', 'today', 'tomorrow',
-        'what time', 'are you open', 'when do you open', 'when do you close',
+        'weekend', 'weekday',
+        'are you open', 'when do you open', 'when do you close',
         'what time do you open', 'what time do you close', 'open on weekends',
         'open on sundays', 'open today', 'what days', 'which days',
         'when are you open', 'do you open on', 'opening time', 'closing time',
@@ -27,11 +27,11 @@
     // ── LOCATION / DIRECTIONS ────────────────────────────────────────────────
     location: {
       keywords: [
-        'where', 'address', 'location', 'find you', 'get there', 'directions',
+        'address', 'location', 'find you', 'get there', 'directions',
         'navigate', 'railroad', 'greenwich', 'connecticut', 'parking', 'park',
         'train', 'metro north', 'bus', 'transit', 'i-95', 'merritt',
         'parkway', 'highway', 'exit', 'arch street', 'downtown',
-        'how far', 'how do i get', 'how do i get to you', 'how do i get there',
+        'how far', 'how do i get to you', 'how do i get there',
         'where are you', 'where are you located', 'where is india avenue',
         'find india avenue', 'close to', 'near', 'nearby',
         'by car', 'by train', 'by foot', 'walking', 'drive',
@@ -40,6 +40,8 @@
         'greenwich train station', 'greenwich station',
         'from new york', 'from nyc', 'from stamford', 'from the city',
         'how close', 'distance', 'neighborhood', 'railroad ave', 'railroad avenue',
+        'where is', 'where are', 'where is the restaurant', 'where is your restaurant',
+        'your restaurant'
       ],
       response: () => `**India Avenue Location** 📍\n\n🏠 **249 Railroad Ave, Greenwich, CT 06830**\n\n🚗 **By Car:** I-95 Exit 3, or Merritt Parkway Exit 31. We're in downtown Greenwich on Railroad Ave.\n\n🅿️ **Parking:** Street parking on Railroad Ave + **Arch Street public lot** (1 min walk). Convenient!\n\n🚆 **By Train:** **5-min walk** from Greenwich Station (Metro-North New Haven Line). Head south on Greenwich Ave, right on Railroad Ave.\n\n🚶 **On Foot:** From Greenwich Avenue, head east on Railroad Ave — look for our warm lighting and the glow of the tandoor kitchen.\n\n📞 +1 (203) 717-1567`
     },
@@ -244,7 +246,7 @@
         'beer', 'wine', 'cocktail', 'cocktails', 'spirits', 'whiskey', 'vodka',
         'gin', 'rum', 'tequila', 'cognac', 'martini', 'margarita', 'mojito',
         'lassi', 'mango lassi', 'sweet lassi', 'salted lassi', 'chai', 'tea',
-        'coffee', 'juice', 'soft drink', 'soda', 'water', 'sparkling',
+        'coffee', 'juice', 'soft drink', 'soda', 'sparkling',
         'non alcoholic', 'non-alcoholic', 'kingfisher', 'taj mahal',
         'rupee ipa', 'rupee lager', 'stella artois', 'lychee martini',
         'bengal tiger', 'bombay dream', 'cooch behar', 'cosmopolitan',
@@ -411,7 +413,7 @@
     if (isThanks(t)) return formatResponse(`You're very welcome! Hope to see you at India Avenue soon. 🍛✨`);
     const cat = classify(t);
     if (cat && KB[cat]) return formatResponse(KB[cat].response());
-    return formatResponse(`I'm not sure I caught that! I can help with:\n\n📅 **Hours** · 📍 **Location & Parking** · 🍛 **Lunch Specials** · 🌙 **Dinner Menu** · 🌿 **Vegetarian Options** · 🌶️ **Spice Levels** · 🍽️ **Reservations** · 🛵 **Online Ordering** · 🎉 **Catering** · 🍹 **Drinks** · 👨‍👩‍👧 **Kids Menu** · ✨ **About Us**\n\nOr call us directly: **+1 (203) 717-1567** 😊`);
+    return formatResponse(`I'm India Avenue's chatbot, so I can only help with questions about the restaurant! 🍛\n\nTry asking about:\n📅 **Hours** · 📍 **Location & Parking** · 🍛 **Lunch Specials** · 🌙 **Dinner Menu**\n🌿 **Vegetarian & Vegan** · 🌶️ **Spice Levels** · 🔵 **Kosher / Halal / Jain**\n🍽️ **Reservations** · 🛵 **Online Ordering** · 🎉 **Catering** · 🍹 **Drinks** · 👨‍👩‍👧 **Kids Menu**\n\nOr call us directly: **+1 (203) 717-1567** 😊`);
   }
 
 
