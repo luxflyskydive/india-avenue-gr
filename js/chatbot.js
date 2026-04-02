@@ -569,6 +569,16 @@
     #ia-chat-send:hover { transform: scale(1.1); box-shadow: 0 4px 14px rgba(200,131,26,0.6); }
     #ia-chat-send svg { pointer-events: none; }
 
+    /* ── Touch devices: slide-up only (no scale = no Safari zoom) ─ */
+    @media (hover: none) and (pointer: coarse) {
+      #ia-chat-window {
+        transform: translateY(24px);
+        transition: transform 0.28s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.22s;
+      }
+      #ia-chat-window.ia-open { transform: translateY(0); }
+      #ia-chat-window, #ia-chat-toggle, #ia-chat-bubble { touch-action: pan-x pan-y; }
+    }
+
     /* ── Mobile: full-width, taller, avoid home indicator ───────── */
     @media (max-width: 520px) {
       #ia-chat-window {
@@ -661,6 +671,23 @@
       setTimeout(() => b && b.parentNode && b.parentNode.removeChild(b), 260);
     }
 
+    // Touch detection: prevents Safari auto-zoom on focus
+    const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
+    // iOS scroll lock: prevents page drift while chat is open
+    let _lockedScrollY = 0;
+    function lockBodyScroll() {
+      _lockedScrollY = window.scrollY;
+      document.body.style.cssText += ';position:fixed;top:-' + _lockedScrollY + 'px;width:100%;overflow-y:scroll';
+    }
+    function unlockBodyScroll() {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflowY = '';
+      window.scrollTo(0, _lockedScrollY);
+    }
+
     function openChat() {
       isOpen = true;
       dismissBubble();
@@ -668,7 +695,11 @@
       toggle.setAttribute('aria-label', 'Close India Avenue chat');
       toggle.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
       if (!greeted) { greeted = true; addBotMsg(getResponse('hello')); }
-      setTimeout(() => { try { input.focus(); } catch(e){} }, 280);
+      if (isTouch) {
+        lockBodyScroll(); // no input.focus() — prevents Safari zoom
+      } else {
+        setTimeout(() => { try { input.focus(); } catch(e){} }, 280);
+      }
     }
 
     function closeChat() {
@@ -676,6 +707,7 @@
       win.classList.remove('ia-open');
       toggle.setAttribute('aria-label', 'Open India Avenue chat');
       toggle.innerHTML = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`;
+      if (isTouch) unlockBodyScroll();
     }
 
     toggle.addEventListener('click', () => isOpen ? closeChat() : openChat());
