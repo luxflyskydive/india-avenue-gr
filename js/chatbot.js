@@ -19,7 +19,8 @@
         'how late are you open', 'how early do you open',
         'last seating', 'kitchen hours', 'do you close early',
         'what time does lunch start', 'what time does dinner start',
-        'do you open for lunch on weekends', 'weekend lunch hours'
+        'do you open for lunch on weekends', 'weekend lunch hours',
+        'schedule', 'can i see your schedule', 'your schedule'
       ],
       response: () => `**India Avenue Hours** 🕐\n\n**Lunch:**\n📅 **Mon – Fri:** 11:30 AM – 2:30 PM\n📅 **Sat – Sun:** 12:00 PM – 3:00 PM\n\n**Dinner:**\n📅 **Every Day:** 5:00 PM – 10:00 PM\n\n⏰ Last seating is **30 minutes before close**. Kitchen closes at posted times.\n\n📞 +1 (203) 717-1567 | 🛵 [Order Online](https://order.toasttab.com/online/india-avenue-249-railroad-avenue)`
     },
@@ -31,17 +32,17 @@
         'navigate', 'railroad', 'greenwich', 'connecticut', 'parking', 'park',
         'train', 'metro north', 'bus', 'transit', 'i-95', 'merritt',
         'parkway', 'highway', 'exit', 'arch street', 'downtown',
-        'how far', 'how do i get to you', 'how do i get there',
+        'how far', 'how far away', 'how far to drive', 'how far to walk', 'how do i get to you', 'how do i get there',
         'where are you', 'where are you located', 'where is india avenue',
         'find india avenue', 'close to', 'near', 'nearby',
         'by car', 'by train', 'by foot', 'walking', 'drive',
-        'is there parking', 'free parking', 'parking available', 'can i park',
+        'is there parking', 'free parking', 'parking available', 'can i park', 'zip code', 'postal code', 'what street', 'which street', 'what city', 'what state', 'uber', 'lyft', 'taxi', 'public transport', 'next to what', 'what are you next to',
         'street parking', 'public parking', 'parking lot',
         'greenwich train station', 'greenwich station',
         'from new york', 'from nyc', 'from stamford', 'from the city',
         'how close', 'distance', 'neighborhood', 'railroad ave', 'railroad avenue',
-        'where is', 'where are', 'where is the restaurant', 'where is your restaurant',
-        'your restaurant'
+        'where is the restaurant', 'where are you located', 'where are', 'where is the restaurant', 'where is your restaurant',
+        'your restaurant', 'where is'
       ],
       response: () => `**India Avenue Location** 📍\n\n🏠 **249 Railroad Ave, Greenwich, CT 06830**\n\n🚗 **By Car:** I-95 Exit 3, or Merritt Parkway Exit 31. We're in downtown Greenwich on Railroad Ave.\n\n🅿️ **Parking:** Street parking on Railroad Ave + **Arch Street public lot** (1 min walk). Convenient!\n\n🚆 **By Train:** **5-min walk** from Greenwich Station (Metro-North New Haven Line). Head south on Greenwich Ave, right on Railroad Ave.\n\n🚶 **On Foot:** From Greenwich Avenue, head east on Railroad Ave — look for our warm lighting and the glow of the tandoor kitchen.\n\n📞 +1 (203) 717-1567`
     },
@@ -92,17 +93,30 @@
         'tikka masala', 'butter chicken', 'biryani', 'samosa', 'naan',
         'curry', 'curries', 'tandoori', 'korma', 'vindaloo', 'saag',
         'paneer', 'dal', 'dosa', 'chaat', 'roti', 'paratha',
-        'rogan josh', 'masala', 'kebab', 'kabab', 'rice', 'basmati',
+        'rogan josh', 'kebab', 'kabab', 'rice', 'basmati',
         'north indian', 'south indian', 'indo chinese', 'indo-chinese',
         'chicken tikka', 'lamb chops', 'shrimp', 'salmon', 'fish curry',
         'what is popular', 'best dishes', 'house favorite', 'signature dish',
         'must try', 'what should i order', 'appetizer', 'appetizers',
         'starter', 'starters', 'soup', 'salad', 'dessert', 'desserts',
-        'sides', 'bread', 'breads', 'what food do you have',
+        'bread', 'breads', 'what food do you have',
         'what are your most popular dishes', 'recommended dishes',
         'gulab jamun', 'kulfi', 'kheer', 'rasmalai', 'gajar halwa',
         'mango lassi', 'garlic naan', 'onion bhaji', 'malai kofta',
-        'do you have biryani', 'do you have dosa', 'do you have naan'
+        'do you have biryani', 'do you have dosa', 'do you have naan',
+        'ingredients', 'ingredient', 'what is in it', 'what is in this',
+        'what are the ingredients', 'what goes in', 'what is it made of',
+        'made with', 'what is made of', 'what does it contain', 'does it contain',
+        'contains', 'made from', 'what is this made of', 'tell me about the dish',
+        'describe the dish', 'what is this dish', 'explain the dish',
+        'what is that', 'what are these', 'what are those', 'tell me more about',
+        'more information on', 'more info on', 'can you tell me about',
+        'what is in the', 'whats in the', 'whats in it', 'what is it',
+        'allergy info', 'allergens', 'contains nuts', 'contains dairy',
+        'what type of curry', 'how spicy is', 'how hot is',
+        'mild medium hot', 'sauce', 'sauce in it', 'base sauce',
+        'chicken or lamb', 'is it chicken', 'is it vegetarian',
+        'tell me what', 'what exactly is', 'explain what'
       ],
       response: () => `**India Avenue Menu** 🍽️\n\nWe serve **authentic North & South Indian cuisine** — a full, carefully curated menu.\n\n🌟 **House Favorites:**\n- Chicken Tikka Masala — $20.95\n- Butter Chicken — $20.95\n- Lamb Rogan Josh — $23.95 *(Kashmiri style, shallots & yogurt)*\n- Saag Paneer — $17.95\n- Garlic Naan — $5.25\n\n**Menu Sections:**\nSoup & Salad · Chaat Corner · Appetizers · Dosa Stand · Indo-Chinese · Vegetarian Entrées · Chicken · Lamb · Seafood · Tandoor · Rice & Biryani · Breads · Desserts · Beer, Wine & Cocktails\n\nAsk me about any section, or ask what to order! 😊`
     },
@@ -114,10 +128,13 @@
         'table for', 'can i book', 'make a reservation', 'get a table',
         'walk-in', 'walk-ins', 'walk in', 'do i need a reservation',
         'can i just show up', 'can i just turn up', 'can i come without a reservation',
-        'do you take reservations', 'how do i book a table',
+        'do you take reservations', 'how do i book a table', 'large group', 'group of', 'group booking', 'opentable', 'resy', 'party of',
         'how do i make a reservation', 'book for a group', 'large group reservation',
         'party of', 'seats', 'seating', 'wait time', 'waitlist',
         'how long is the wait', 'do i need to book', 'table availability',
+        'table available', 'book for a birthday', 'birthday reservation',
+        'how far in advance', 'in advance', 'book in advance', 'advance booking',
+        'private dining room', 'is there a table',
         'is it busy', 'will there be a wait', 'busy tonight',
         'do you take bookings', 'how to reserve', 'how to book'
       ],
@@ -132,7 +149,7 @@
         'deliver', 'can i order online', 'how do i order', 'order ahead',
         'order online', 'toast', 'toasttab', 'grubhub', 'doordash',
         'ubereats', 'seamless', 'order food', 'take away', 'takeaway',
-        'carry out', 'can i pick up', 'phone order', 'how to order',
+        'carry out', 'carryout', 'can i pick up', 'phone order', 'how to order',
         'place an order', 'order now', 'ready for pickup',
         'do you deliver', 'is there delivery', 'can i get delivery',
         'can i order for pickup', 'order for collection'
@@ -152,6 +169,7 @@
         'avial', 'navaratna korma', 'tofu', 'chana saag', 'aloo gobi',
         'do you have vegan', 'is the food vegan', 'can vegans eat here',
         'strictly vegetarian', 'vegetarian friendly', 'veg menu',
+        'mock meat', 'mock meat options', 'vegan dishes', 'tofu dishes', 'nut allergy',
         'veg options', 'veg dishes', 'what vegetarian options',
         'vegetarian dishes', 'good for vegetarians', 'any veg options',
         'i am vegetarian', 'i am a vegetarian', 'i am vegetarian what can i eat',
@@ -174,7 +192,8 @@
         'does it come spicy', 'is the food spicy', 'level of spice',
         'can you tone down the spice', 'i like it mild', 'mild food', 'i like mild', 'i like it hot',
         'make it spicy', 'reduce the spice', 'no heat', 'very mild',
-        'spice options', 'heat level', 'adjust heat', 'how hot is it'
+        'spice options', 'heat level', 'adjust heat', 'how hot is it',
+        'how spicy is', 'how hot is', 'spicy food', 'how spicy is the food', 'food mild'
       ],
       response: () => `**Spice Levels at India Avenue** 🌶️\n\nWe cook to **your preference** — just tell your server!\n\n🟢 **Mild** — aromatic and flavourful, no heat\n🟡 **Medium** — a gentle warmth with full flavour\n🔴 **Hot** — the full, traditional heat\n\n*"We never use spice as a shortcut — every level is made with the same care."*\n\n**Naturally hotter dishes:** Vindaloo · Chettinad · Madras · Rasam Soup\n**Milder crowd-pleasers:** Butter Chicken · Chicken Korma · Navaratna Korma · Malai Kofta\n\nJust tell your server when you order — adjustments are no problem at all! 😊`
     },
@@ -184,6 +203,11 @@
       keywords: [
         'allergy', 'allergies', 'allergen', 'allergens', 'dietary restriction',
         'dietary restrictions', 'dietary needs', 'special diet', 'food intolerance',
+        'what can i eat', 'less salt', 'without salt', 'low salt', 'no salt',
+        'without onion', 'no onion', 'without garlic', 'no garlic',
+        'low carb', 'low-carb', 'diabetic', 'diabetes',
+        'keto', 'keto friendly', 'keto friendly food',
+        'your food kosher', 'is the food kosher', 'is your food kosher',
         'intolerance', 'safe for allergies', 'accommodation', 'dietary accommodation',
         'i have an allergy', 'i am allergic', 'nutritional information',
         'can you accommodate', 'do you accommodate', 'accommodate my allergy',
@@ -234,7 +258,8 @@
         'private hire', 'hire the restaurant', 'custom menu', 'custom quote',
         'how much does catering cost', 'catering prices', 'catering enquiry',
         'book a private event', 'can i book a private event',
-        'food for a party', 'food for a corporate', 'food for an event'
+        'food for a party', 'food for a corporate', 'food for an event', 'set up at venue', 'set up at the venue', 'setup at venue', 'catering staff', 'how far in advance to book catering', 'catering minimum', 'minimum catering order', 'minimum order for catering', 'catering menu',
+        'catering menu options', 'in advance', 'book catering', 'how far in advance'
       ],
       response: () => `**Catering & Private Events** 🎉\n\nYes — we cater events of **all sizes**!\n\nWe cover:\n🏢 Corporate lunches & office catering\n🎂 Birthday dinners & celebrations\n💍 Weddings & special occasions\n🤝 Any gathering where great food matters\n\nWe put together something **tailored to your event** — menu, quantity, timing.\n\n📞 **Call:** +1 (203) 717-1567\n✉️ **Email:** via our [contact page](https://www.indiaavenuegr.com/contact.php)\n\nWe respond quickly and love making events special! 🌟`
     },
@@ -245,8 +270,9 @@
         'drink', 'drinks', 'beverage', 'beverages', 'alcohol', 'alcoholic',
         'beer', 'wine', 'cocktail', 'cocktails', 'spirits', 'whiskey', 'vodka',
         'gin', 'rum', 'tequila', 'cognac', 'martini', 'margarita', 'mojito',
-        'lassi', 'mango lassi', 'sweet lassi', 'salted lassi', 'chai', 'tea',
+        'lassi', 'mango lassi', 'sweet lassi', 'salted lassi', 'chai', 'tea', 'liquor license', 'byob', 'bring your own bottle', 'happy hour', 'happy hr',
         'coffee', 'juice', 'soft drink', 'soda', 'sparkling',
+        'sparkling water', 'still water', 'bottled water',
         'non alcoholic', 'non-alcoholic', 'kingfisher', 'taj mahal',
         'rupee ipa', 'rupee lager', 'stella artois', 'lychee martini',
         'bengal tiger', 'bombay dream', 'cooch behar', 'cosmopolitan',
@@ -272,7 +298,9 @@
         'kids friendly', 'child friendly', 'good for kids', 'bring kids',
         'suitable for children', 'children allowed', 'can i bring my kids',
         'do you have kids food', 'kids options',
-        'what do you have for children', 'what can children eat'
+        'what do you have for children', 'what can children eat',
+        'high chair', 'highchair', 'booster seat', 'booster seats',
+        'kids get mild', 'kids mild food', 'nut allergy'
       ],
       response: () => `**Kids at India Avenue** 👨‍👩‍👧\n\nWe're a **family-friendly restaurant** and love welcoming families!\n\n**Kids Menu:**\n🍗 K-Chicken Nuggets — **$7.95**\n🍟 K-French Fries — **$5.95**\n\nThe wider menu also has plenty that children love — **Butter Chicken**, **Garlic Naan**, and **Basmati Rice** are always popular with younger guests! Spice is always adjustable to mild.\n\n📞 Bringing the family? Call ahead and we'll have a great table ready: **+1 (203) 717-1567** 😊`
     },
@@ -289,8 +317,9 @@
         'how old is the restaurant', 'new restaurant',
         'indian restaurant greenwich', 'fine dining', 'authentic',
         'traditional', 'tripadvisor', 'google rating', 'rating', 'reviews',
-        'what is india avenue like', 'describe the restaurant',
+        'what is india avenue like', 'describe the restaurant', 'who owns', 'who is the owner', 'dress code', 'dress code required', 'awards', 'michelin', 'yelp rating', 'google rating', 'seating capacity', 'capacity', 'how big is', 'how long have you been open', 'how long open',
         'what makes you special', 'what is unique about you',
+        'how authentic', 'food authentic', 'how authentic is', 'is the food authentic',
         'naan baked', 'clay oven', 'north indian', 'south indian', 'subcontinent',
         'watch the kitchen', 'open kitchen', 'visible kitchen',
         'best indian restaurant', 'greenwich indian',
@@ -303,7 +332,7 @@
     // ── CONTACT ──────────────────────────────────────────────────────────────
     contact: {
       keywords: [
-        'contact', 'phone', 'call', 'email', 'reach', 'get in touch',
+        'contact', 'phone', 'call', 'email', 'reach', 'get in touch', 'facebook', 'social media', 'our website', 'feedback', 'leave feedback', 'complaint', 'make a complaint', 'speak to the manager', 'speak to manager', 'gift card', 'gift cards',
         'how do i contact', 'how do i reach you', 'speak to someone',
         'talk to someone', 'customer service', 'help', 'enquiry', 'inquiry',
         'phone number', 'telephone', 'what is your number',
@@ -312,7 +341,8 @@
         'instagram', 'social media', 'follow you',
         'contact details', 'contact info', 'speak to a person',
         'talk to a human', 'speak to a human', 'speak to a real person',
-        'how do i get in touch', 'how do you get in touch'
+        'how do i get in touch', 'how do you get in touch',
+        'website', 'your website', 'do you have a website', 'web site'
       ],
       response: () => `**Contact India Avenue** 📞\n\n📞 **Phone:** +1 (203) 717-1567\n🏠 **Address:** 249 Railroad Ave, Greenwich, CT 06830\n📸 **Instagram:** Follow us for daily specials & behind-the-scenes kitchen content!\n\n**Best ways to reach us:**\n- 📞 **Call** — best for reservations and same-day requests\n- ✉️ **Email** — for catering, feedback, or general enquiries\n- 🚶 **Walk in** — always welcome!\n\n⏰ We're here:\nMon–Fri: 11:30 AM–2:30 PM & 5–10 PM\nSat–Sun: 12–3 PM & 5–10 PM`
     },
