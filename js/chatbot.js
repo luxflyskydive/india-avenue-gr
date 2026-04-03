@@ -44,7 +44,7 @@
         'where is the restaurant', 'where are you located', 'where are', 'where is the restaurant', 'where is your restaurant',
         'your restaurant', 'where is'
       ],
-      response: () => `**India Avenue Location** 📍\n\n🏠 **249 Railroad Ave, Greenwich, CT 06830**\n\n🚗 **By Car:** I-95 Exit 3, or Merritt Parkway Exit 31. We're in downtown Greenwich on Railroad Ave.\n\n🅿️ **Parking:** Street parking on Railroad Ave + **Arch Street public lot** (1 min walk). Convenient!\n\n🚆 **By Train:** **5-min walk** from Greenwich Station (Metro-North New Haven Line). Head south on Greenwich Ave, right on Railroad Ave.\n\n🚶 **On Foot:** From Greenwich Avenue, head east on Railroad Ave — look for our warm lighting and the glow of the tandoor kitchen.\n\n📞 +1 (203) 717-1567`
+      response: () => `**249 Railroad Ave, Greenwich, CT 06830** 📍\n\n🚗 By car: I-95 Exit 3, or Merritt Parkway Exit 31. Downtown Greenwich on Railroad Ave.\n🅿️ Parking: Street parking + Arch Street public lot (1 min walk).\n🚆 By train: 5-min walk from Greenwich Station (Metro-North New Haven Line).\n\n📞 +1 (203) 717-1567`
     },
 
     // ── LUNCH SPECIALS ───────────────────────────────────────────────────────
@@ -177,7 +177,7 @@
         'plant based dishes', 'plant-based dishes', 'do you have malai kofta',
         'dont eat meat', 'do not eat meat', 'eat meat'
       ],
-      response: () => `**Vegetarian & Vegan at India Avenue** 🌿\n\nWe have an **outstanding vegetarian selection** — one of the things we're most proud of!\n\n**Vegetarian Dinner Entrées ($15.95–$19.00):**\nSaag Paneer · Chana Saag · Malai Kofta · Shahi Paneer · Kadai Paneer · Mutter Paneer · Baingan Bharta · Aamchur Bhindi · Navaratna Korma · Tadka Dal · Dal Tandoor Pasha · Avial · Kadai Veg · Mutter Gobi · Paneer Tikka Masala · Tofu Saag · Vegetable Tikka Masala\n\n🌱 **Vegan options** available — dishes marked **GF/V** on the menu.\n\n**Lunch Specials** also include a full veg selection at $13.95!\n\nAsk your server — we'll happily clarify what's vegan-friendly! 😊`
+      response: () => `We have an outstanding vegetarian selection — **17+ dishes** on the dinner menu at $15.95–$19.00.\n\nHighlights: Saag Paneer · Malai Kofta · Shahi Paneer · Paneer Tikka Masala · Navaratna Korma · Tofu Saag — and many more.\n\n🌱 Vegan options available — look for dishes marked GF/V on the menu, or ask your server.`
     },
 
     // ── SPICE LEVELS ─────────────────────────────────────────────────────────
@@ -241,7 +241,7 @@
         'jain what can i eat', 'i am jain what can i eat',
         'i observe kashrut', 'observe kashrut', 'observe'
       ],
-      response: () => `**Dietary Information at India Avenue** 🌿\n\nWe want every guest to eat well and feel comfortable. Here is honest guidance for common dietary needs:\n\n🔵 **Kosher**\nWe are **not kosher-certified**. For different levels of kashrut observance:\n- *Avoiding pork & shellfish only* — our chicken, lamb, and vegetarian dishes work well\n- *Meat-dairy separation* — most curries are either meat-based or dairy-based, and we can prepare dishes **dairy-free on request**\n- *Strict rabbinical kashrut* — we cannot guarantee halachic compliance; please call us: **+1 (203) 717-1567**\n\n🕌 **Halal**\nWe are **not halal-certified** and our kitchen handles non-halal meats. Guests avoiding pork enjoy our **vegetarian and seafood dishes** freely. For stricter halal observance, please call ahead: **+1 (203) 717-1567**\n\n🌿 **Jain Diet**\nWe offer a wide **vegetarian selection** and can try to accommodate Jain preferences (no meat, no root vegetables). Please mention it when ordering or call ahead so the kitchen can prepare accordingly.\n\n🐄 **Hindu Diet / No Beef**\nWe do **not serve beef** at India Avenue — it is not on our menu. We serve lamb, chicken, seafood, and an extensive vegetarian selection.\n\n🌾 **Gluten-Free**\nMany dishes are marked **GF** on our menu. Indian cuisine has many naturally gluten-free options (rice, lentils, most curries). Please inform your server — our kitchen is not a dedicated gluten-free facility.\n\n🥛 **Dairy-Free / Lactose Intolerant**\nMany dishes are naturally dairy-free. Dishes with paneer, cream, or butter can often be adjusted — just ask your server.\n\n🥜 **Nut & Other Allergies**\nPlease inform your server of any allergy when you arrive. We take all allergies seriously — our kitchen is not allergen-free, so for severe allergies please call before visiting.\n\n📞 For any specific concern, call us before visiting: **+1 (203) 717-1567** — we will walk through the menu with you.`
+      response: () => `We can accommodate most dietary needs — just let your server know when you sit down.\n\n**No beef** on our menu. **Not kosher or halal certified**, but we're happy to discuss your level of observance — call us: **+1 (203) 717-1567**.\n\n**Gluten-free:** Many dishes are naturally GF (marked on the menu). Not a dedicated GF kitchen.\n\n**Allergies:** Please inform your server on arrival. For severe allergies, call ahead so we can help.`
     },
 
     // ── CATERING / PRIVATE EVENTS ─────────────────────────────────────────────
@@ -344,7 +344,7 @@
         'how do i get in touch', 'how do you get in touch',
         'website', 'your website', 'do you have a website', 'web site'
       ],
-      response: () => `**Contact India Avenue** 📞\n\n📞 **Phone:** +1 (203) 717-1567\n🏠 **Address:** 249 Railroad Ave, Greenwich, CT 06830\n📸 **Instagram:** Follow us for daily specials & behind-the-scenes kitchen content!\n\n**Best ways to reach us:**\n- 📞 **Call** — best for reservations and same-day requests\n- ✉️ **Email** — for catering, feedback, or general enquiries\n- 🚶 **Walk in** — always welcome!\n\n⏰ We're here:\nMon–Fri: 11:30 AM–2:30 PM & 5–10 PM\nSat–Sun: 12–3 PM & 5–10 PM`
+      response: () => `📞 **+1 (203) 717-1567**\n🏠 249 Railroad Ave, Greenwich, CT 06830\n📸 Instagram: @indiaavenuegr\n\nBest for reservations and same-day requests: call us directly.`
     },
 
   };
