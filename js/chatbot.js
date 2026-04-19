@@ -745,18 +745,21 @@
     toggle.addEventListener('click', () => isOpen ? closeChat() : openChat());
     closeBtn.addEventListener('click', closeChat);
 
-    // ── Attention bubble ─────────────────────────────────────────────
-    const bubble = document.createElement('div');
-    bubble.id = 'ia-chat-bubble';
-    bubble.innerHTML = 'Have a question? Ask here!';
-    bubble.setAttribute('role', 'button');
-    bubble.setAttribute('aria-label', 'Open chat assistant');
-    document.body.appendChild(bubble);
-    bubble.addEventListener('click', () => { dismissBubble(); openChat(); });
+    // ── Attention bubble — shown once ever via localStorage ──────────
+    if (!localStorage.getItem('ia_popup_seen')) {
+      localStorage.setItem('ia_popup_seen', '1');
+      const bubble = document.createElement('div');
+      bubble.id = 'ia-chat-bubble';
+      bubble.innerHTML = 'Have a question? Ask here!';
+      bubble.setAttribute('role', 'button');
+      bubble.setAttribute('aria-label', 'Open chat assistant');
+      document.body.appendChild(bubble);
+      bubble.addEventListener('click', () => { dismissBubble(); openChat(); });
 
-    // Auto-dismiss bubble after 9 seconds
-    const bubbleTimeout = setTimeout(() => dismissBubble(), 9000);
-    bubble.addEventListener('click', () => clearTimeout(bubbleTimeout));
+      // Auto-dismiss bubble after 9 seconds
+      const bubbleTimeout = setTimeout(() => dismissBubble(), 9000);
+      bubble.addEventListener('click', () => clearTimeout(bubbleTimeout));
+    }
 
     // ── iOS/Safari keyboard: resize window when virtual keyboard appears ──
     if (window.visualViewport) {
