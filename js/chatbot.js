@@ -792,9 +792,12 @@
       return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     }
 
+    let lastSent = 0;
     function sendMessage() {
+      if (Date.now() - lastSent < 1000) return;
       const text = input.value.trim();
       if (!text) return;
+      lastSent = Date.now();
       addUserMsg(text);
       input.value = '';
       input.style.height = 'auto';
